@@ -52,17 +52,17 @@ plugins: [
 ],
 ```
 ### プラグインの説明
-- hyper-altair  
-hyperのthemeです。他にもたくさんのthemeがあります
-- hyper-search  
-hyperの中で検索が使えるようになります(ファイル編集中は少しおかしいところにカーソルが行ったりする...)
-- hyper-statusline  
-hyperのウィンドウ下部にディレクトリ名とgitの状態をスタイリッシュに表示してくれる(これのおかげでshellの設定ファイルがスッキリするかも)
-- hyper-tab-icons  
-hyperのtabにshellの状態をiconで表示してくれる、格好いい
-- hyperterm-visor  
-hyperをitermのようにhotkeyでhide/showを切り替えられる(説明あってるかな)
-- hypercwd  
+- [hyper-altair](https://www.npmjs.com/package/hyper-altair)  
+hyperのthemeです。他にもたくさんのthemeがあります  
+- [hyper-search](https://www.npmjs.com/package/hyper-search)  
+hyperの中で検索が使えるようになります(ファイル編集中は少しおかしいところにカーソルが行ったりする...)  
+- [hyper-statusline](https://www.npmjs.com/package/hyper-statusline)  
+hyperのウィンドウ下部にディレクトリ名とgitの状態をスタイリッシュに表示してくれる(これのおかげでshellの設定ファイルがスッキリするかも)  
+- [hyper-tab-icons](https://www.npmjs.com/package/hyper-tab-icons)  
+hyperのtabにshellの状態をiconで表示してくれる、格好いい  
+- [hyperterm-visor](https://www.npmjs.com/package/hyperterm-visor)  
+hyperをitermのようにhotkeyでhide/showを切り替えられる(説明あってるかな)  
+- [hypercwd](https://www.npmjs.com/package/hypercwd)  
 新しいtabで開くときに同じディレクトリになる
 
 ## 使ってみた感想
