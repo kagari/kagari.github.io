@@ -53,20 +53,25 @@ plugins: [
 ```
 ### プラグインの説明
 - [hyper-altair](https://www.npmjs.com/package/hyper-altair)  
-hyperのthemeです。他にもたくさんのthemeがあります  
+hyperのthemeです。他にもたくさんのthemeがあります
+
 - [hyper-search](https://www.npmjs.com/package/hyper-search)  
-hyperの中で検索が使えるようになります(ファイル編集中は少しおかしいところにカーソルが行ったりする...)  
+hyperの中で検索が使えるようになります(ファイル編集中は少しおかしいところにカーソルが行ったりする...)
+
 - [hyper-statusline](https://www.npmjs.com/package/hyper-statusline)  
-hyperのウィンドウ下部にディレクトリ名とgitの状態をスタイリッシュに表示してくれる(これのおかげでshellの設定ファイルがスッキリするかも)  
+hyperのウィンドウ下部にディレクトリ名とgitの状態をスタイリッシュに表示してくれる(これのおかげでshellの設定ファイルがスッキリするかも)
+
 - [hyper-tab-icons](https://www.npmjs.com/package/hyper-tab-icons)  
-hyperのtabにshellの状態をiconで表示してくれる、格好いい  
+hyperのtabにshellの状態をiconで表示してくれる、格好いい
+
 - [hyperterm-visor](https://www.npmjs.com/package/hyperterm-visor)  
-hyperをitermのようにhotkeyでhide/showを切り替えられる(説明あってるかな)  
+hyperをitermのようにhotkeyでhide/showを切り替えられる(説明あってるかな)
+
 - [hypercwd](https://www.npmjs.com/package/hypercwd)  
 新しいtabで開くときに同じディレクトリになる
 
 ## 使ってみた感想
-Electron製なので、重いのかな？と思いつつ始めたhyperですが、結構軽快に動いています。  
-ただ、vimなどでファイルを開くとitermと比べてかなり動作がもっさりします...  
+Electron製なので、重いのかな？と思いつつ始めたhyperですが、`ls`や`cd`などのコマンドを実行する範囲では問題なく動作しています。  
+ただ、vimなどでファイルを開くとitermと比べてかなり動作がもっさりします(ファイルが重いというわけでは無重いというわけでは無い)...  
 あと、プラグインでカスタマイズをするととても綺麗なCUI環境(これはもうGUIだが)を整えることができるのがいいですねw  
 まだ使い始めて3日くらいなので、これからカスタマイズなどをして使いやすくしていきたいですね。  
