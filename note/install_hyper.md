@@ -7,10 +7,10 @@
 [hyper(hyperterm) 2.0 を日本語対応する - Qiita](https://qiita.com/terrierscript/items/47b11b8a24438d789210)  
 
 ## アジェンダ
-- [install方法](## install方法)
-- [設定ファイル](## 設定ファイル)
-- [plugin](## plugin)
-- [使ってみた感想](## 使ってみた感想)
+- [install方法](#install方法)
+- [設定ファイル](#設定ファイル)
+- [plugin](#plugin)
+- [使ってみた感想](#使ってみた感想)
 
 ## install方法
 macを使っているので `Homebrew` を使ってinstall
