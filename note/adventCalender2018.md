@@ -117,4 +117,5 @@ M=C^d mod n
 
 何かアドバイスなどがあれば[Twitter](https://twitter.com/kagarin_ie)の方によろしくお願いします！
 
-ps 数式ってgithub pagesでどうかけばいいんや...
+**ps**  
+数式ってgithub pagesでどうかけばいいんや...
