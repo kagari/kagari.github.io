@@ -47,7 +47,6 @@ M=C^d mod n
 使用するライブラリはこの2つ
 
     import math
-    import random
     
 とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。  
 まずは公開鍵から
