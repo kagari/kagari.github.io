@@ -116,3 +116,5 @@ M=C^d mod n
 次実装する時は(多分ない)もっと暗号として使えるように実装していきたいなー
 
 何かアドバイスなどがあれば[Twitter](https://twitter.com/kagarin_ie)の方によろしくお願いします！
+
+ps 数式ってgithub pagesでどうかけばいいんや...
