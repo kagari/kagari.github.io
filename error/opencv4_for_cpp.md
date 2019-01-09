@@ -1,7 +1,7 @@
 # C++コードをコンパイル時にopencvが無いと言われる
 
-`brew file update` をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが `4.0.1` に上がっていた
-そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
+`brew file update` をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが `4.0.1` に上がっていた  
+そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった  
 
     /usr/local/include/opencv
     /usr/local/include/opencv2
@@ -13,24 +13,24 @@
 
     g++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv4`
     
-今回、 `opencv3.x` を使用したかったのでdowngradeしないといけなくなった
-brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
+今回、 `opencv3.x` を使用したかったのでdowngradeしないといけなくなった  
+brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする  
 
     brew info opencv  # 入っているバージョンを確認
     brew switch opencv 3.4.3_2  # 過去のバージョンを再インストール
     
-そのままコンパイルするとエラーがでる
+そのままコンパイルするとエラーがでる  
 
     dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib
       Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib
       Reason: image not found
       
-どうやら `usr/local/opt/openblas` というライブラリが読み込め無いらしい
-バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
+どうやら `usr/local/opt/openblas` というライブラリが読み込め無いらしい  
+バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す  
 
     brew switch openblas 0.3.4
     
-この状態で、以下のようにコンパイルすると通る
+この状態で、以下のようにコンパイルすると通る  
 
     g++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv`
     
