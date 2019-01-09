@@ -35,7 +35,7 @@ brewは一度入れたバージョンはキャッシュとして取ってある�
     g++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv`
     
 ## 参考文献
-[OpenCV(C++)の画像処理メモ - Qiita](https://qiita.com/yoyoyo_/items/aada199371f6802bb887)
-[OpenCVインストール構成の変遷（OpenCV 3.4.3，3.4.4，4.0.0） - Qiita](https://qiita.com/dandelion1124/items/eae435e601fba2adb0d1)
-[Setting up OpenCV and C++ development environment in Xcode for Computer Vision projects](https://medium.com/@jaskaranvirdi/setting-up-opencv-and-c-development-environment-in-xcode-b6027728003)
+[OpenCV(C++)の画像処理メモ - Qiita](https://qiita.com/yoyoyo_/items/aada199371f6802bb887)  
+[OpenCVインストール構成の変遷（OpenCV 3.4.3，3.4.4，4.0.0） - Qiita](https://qiita.com/dandelion1124/items/eae435e601fba2adb0d1)  
+[Setting up OpenCV and C++ development environment in Xcode for Computer Vision projects](https://medium.com/@jaskaranvirdi/setting-up-opencv-and-c-development-environment-in-xcode-b6027728003)  
 [Homebrewで旧バージョンをインストールする方法(brew versionsはもう使えない) - Qiita](https://qiita.com/honeniq/items/778cc08d2db78e6774d8)
