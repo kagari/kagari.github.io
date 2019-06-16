@@ -1,7 +1,6 @@
 html, body {
     font-size: 18px;
     color: #30343f;
-    
     background-color: #ffffff;
     /* marginとpaddingを0にすることで、headerの上が透けないようにしている */
     margin: 0px 2px 2px;
@@ -35,7 +34,7 @@ main {
 }
 
 h1 {
-    color: #30343f;
+/*    color: #30343f; */
     position: relative;
 }
 
