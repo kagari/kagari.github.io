@@ -1,10 +1,9 @@
 html, body {
     font-size: 18px;
     color: #30343f;
-    font-family: "Courier New", Courier, monospace;
+    
     background-color: #ffffff;
     /* marginとpaddingを0にすることで、headerの上が透けないようにしている */
-    /* TODO: bodyがheaderのせいで見切れるので、直す */
     margin: 0px 2px 2px;
     padding: 0px;
 }
@@ -15,12 +14,29 @@ header {
     width: 100%;
     z-index: 1;
     background-color: #ffffff;
+    box-shadow: 1px 1px 2px #daf0ee;
+}
+
+header p {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2em;
+    margin: 0.5em;
+}
+
+header a {
+    text-decoration: none;
+    color: #30343f;
+}
+
+main {
+    padding-top: 80px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 h1 {
-    #daf0ee;
+    color: #30343f;
     position: relative;
-    text-align: center;
 }
 
 h1:after {
@@ -34,7 +50,7 @@ h1:after {
 h2 {
   padding: 0.25em 0.5em;/*上下 左右の余白*/
   background: transparent;/*背景透明に*/
-  border-left: solid 5px #94d1be;/*左線*/
+  border-left: solid 5px #daf0ee;/*左線*/
 }
 
 code {
@@ -44,8 +60,7 @@ code {
   background: #f4f4f4;
   border: 1px solid #dddd;
   border-left: 5px solid #94d1be;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 3px;
   page-break-inside: avoid;
   font-family: monospace;
   font-size: 14px;
