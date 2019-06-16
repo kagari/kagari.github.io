@@ -1,10 +1,19 @@
-html {
+html, body {
+    font-size: 18px;
     color: #30343f;
     font-family: "Courier New", Courier, monospace;
+    background-color: #ffffff;
+    /* marginとpaddingを0にすることで、headerの上が透けないようにしている */
+    /* TODO: bodyがheaderのせいで見切れるので、直す */
+    margin: 0px 2px 2px;
+    padding: 0px;
 }
 
-body {
-    font-size: 18px;
+header {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    z-index: 1;
     background-color: #ffffff;
 }
 
