@@ -23,3 +23,22 @@ h2 {
   background: transparent;/*背景透明に*/
   border-left: solid 5px #7db4e6;/*左線*/
 }
+
+code {
+  position: relative;
+  padding: 10px 10px 7px;
+  color: #666;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 5px solid #5bb7ae;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 14px;
+  margin: 2em 0;
+  // はみ出した時にスクロールできるようにする
+  overflow: scroll;
+  white-space: pre;
+  display: block;
+}
