@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <title>Advent Calender 2018</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../index.css">
+  </head>
+  <div id="header">
+    <header>
+      <a href="/"><p>kagari</p></a>
+    </header>
+
+    <main>
+      <body>
+	
+	<h1>RSA暗号方式をpythonで実装してみる</h1>
+	<p><a href="https://adventar.org/calendars/3436">琉球大学工学科知能情報コースAdventCalender2018</a>の8日目の記事です。</p>
+
+	<p><a href="https://twitter.com/kagarin_ie">kagari</a>です</p>
+
+	<p>2回目の記事でAdvent Calendarに登録するなんて思いませんでした。</p>
+
+	<p>至らない点などがある場合はTwitterなどでアドバイスをお願いします！</p>
+
+	<h2>RSA暗号方式ってなに？</h2>
+
+	<p>RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wiki)</p>
+	<p>今回はこれをpythonで実装していく</p>
+
+	<h2>アルゴリズム</h2>
+
+	<h3>鍵の生成</h3>
+
+	<p>まずは公開鍵の生成を行う。 <br />
+	  2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。 <br />
+	  さらに、nとmとが互いに素である数$e$を定める。 <br />
+	  この(e,n)が公開鍵である。  </p>
+
+	<p>次に、秘密鍵の生成を行う。 <br />
+	  ed mod ((p-1)(q-1)) = 1となるようなdを見つける。 <br />
+	  このdが秘密鍵である。</p>
+
+	<p>公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。</p>
+
+	<h3>暗号化と複合</h3>
+
+	<h4>暗号化</h4>
+
+	<p>平文(M)を暗号化すると、暗号文(C)は <br />
+	  C=M^e mod nとなる。 <br />
+	  これで暗号化を行う。</p>
+
+	<h4>複合</h4>
+
+	<p>複合は、暗号文(C)を以下のようにして平文(M)にすることができる。 <br />
+	  M=C^d mod n <br />
+	  これで複合を行う。</p>
+
+	<h2>実際に実装していく</h2>
+
+	<p>早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。 <br />
+	  が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする</p>
+	
+	<p>使用するライブラリ</p>
+
+	<pre><code>import math</code></pre>
+
+	<p>とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。<br>
+	  まずは公開鍵から</p>
+
+	<pre><code>def get_public_number(p, q):
+    n = p*q
+  
+    # mと互いに素な数eを見つける
+    m = (p-1)*(q-1)
+    e = 2
+    while math.gcd(m, e) != 1:
+            e += 1
+    return e, n</code></pre>
+
+	<p>次に、秘密鍵を生成する関数を作成する</p>
+
+	<pre><code>def get_private_number(e, p, q):
+    d = 1
+    while True:
+        if (e*d) % ((p-1)*(q-1)) == 1:
+            break;
+	    d+=1
+    return d</code></pre>
+
+	<p>実際に生成してみる。</p>
+
+	<pre><code>p=3
+q=7
+    
+e, n = get_public_number(p,q)
+d = get_private_number(e, p, q)</code></pre>
+
+	<p>それぞれe,n,dを出力してみるとe=5, n=21, d=5になった <br />
+	  これで暗号化と複合のための鍵が生成できた。</p>
+
+	<p>次は暗号化と複合を行う関数を実装する <br />
+	  今回は平文をM、暗号文をCとする</p>
+
+	<pre><code># 暗号化する関数
+def encryption(M, e, n):
+    C = M**(e) % n
+    return C
+
+# 複合する関数
+def composite(C, d, n):
+    M = C**d % n
+    return M</code></pre>
+
+	<p>実際に暗号化、複合を行なってみる</p>
+
+	<pre><code>M = 3 # 平文
+C = encryption(M, e, n)
+# C = 12
+comp_M = composite(C, d, n)
+# comp_M = 3</code></pre>
+
+	<p>暗号から複合までができた</p>
+	<h2>まとめ</h2>
+	<p>　これで、RSA暗号方式の一通りの実装ができました。ただ、今回はp,qを自分で決めて鍵の生成を行い、さらにeは互いに素な数の中でもっとも小さな数を用いているので、このままでは全然暗号化としては役に立ちません...<br>　結構RSAは簡単に実装することができましたが、p,q(大きな数の素数)の生成や暗号鍵の生成で技術・知識的に不足していると感じました。次はもっと暗号として使えるように実装していきたい。</p>
+
+	<p>何かアドバイスなどがあれば<a href="https://twitter.com/kagarin_ie">Twitter</a>の方によろしくお願いします！</p>
+      </body>
+    </main>
+</html>
