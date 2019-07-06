@@ -7,6 +7,12 @@ html, body {
     padding: 0px;
 }
 
+main {
+    padding-top: 80px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 header {
     position: fixed;
     height: 80px;
@@ -25,12 +31,6 @@ header p {
 header a {
     text-decoration: none;
     color: #30343f;
-}
-
-main {
-    padding-top: 80px;
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
 h1 {
