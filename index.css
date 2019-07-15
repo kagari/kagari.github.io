@@ -34,7 +34,7 @@ header a {
 }
 
 h1 {
-/*    color: #30343f; */
+    /* color: #30343f; */
     position: relative;
 }
 
@@ -47,9 +47,9 @@ h1:after {
 }
 
 h2 {
-  padding: 0.25em 0.5em;/*上下 左右の余白*/
-  background: transparent;/*背景透明に*/
-  border-left: solid 5px #daf0ee;/*左線*/
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #daf0ee;/*左線*/
 }
 
 code {
@@ -64,7 +64,7 @@ code {
   font-family: monospace;
   font-size: 14px;
   margin: 2em 0;
-  // はみ出した時にスクロールできるようにする
+  /* はみ出した時にスクロールできるようにする */
   overflow: scroll;
   white-space: pre;
   display: block;
