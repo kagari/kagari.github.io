@@ -35,7 +35,7 @@ Docker desktop == 2.1.0.1</code></pre>
         <p>原因が特定できていないが、 <code>CROSS_TRIPLE=x86_64-apple-darwin</code> という環境変数をDockerfileに下のように設定しても、うまくいかずにハマった。</p>
         <pre><code class="block">ENV CROSS_TRIPLE=x86_64-apple-darwin
 ...
-$(docker) echo $CROSS_TRIPLE
+(docker)$ echo $CROSS_TRIPLE
 # x86_64-apple-darwin14</code></pre>
         <p>！？<br />なぜかx86_64-apple-darwin <strong>14</strong> になってしまう。</p>
         <p>ARGからENVに落とし込んだり、無理やり設定しようとしたがうまくいかなかった。</p>
