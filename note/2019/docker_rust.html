@@ -1,27 +1,45 @@
-<h1 id="rust環境をdockerで作成した">Rust環境をDockerで作成した</h1>
-<p>DockerでRustの環境を作る際に、なんやかんや色々ハマってしまったので備忘録として。<br />
-    docker内でのコマンドは <code>(docker)$</code> って感じで書いています。</p>
-<p>あと、便利に使えるようにzsh用のコマンド化したコードも載せています。</p>
-<h2 id="作成環境">作成環境</h2>
-<pre><code>MacBookPro == 2017 Core i5 16GB
-Docker desktop == 2.1.0.1</code></pre>
-<h2 id="結果">結果</h2>
-<script src="https://gist.github.com/kagari/d543da6c7ce525643a91a71eb716c88a.js"></script>
+<html>
+  <head>
+    <title>Advent Calender 2018</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../index.css">
+  </head>
+  <div id="header">
+    <header>
+      <a href="/"><p>kagari</p></a>
+    </header>
+  </div>
 
-<h2 id="ハマったところ">ハマったところ</h2>
-<h3 id="普通にrustの公式dockerイメージをpullしてきてもベースがlinuxなのでlinux向けにコンパイルされてしまう">普通にRustの公式Dockerイメージをpullしてきても、ベースがlinuxなのでLinux向けにコンパイルされてしまう</h3>
-<p>cargo runまでは別に動くんだけど、buildとかしても作成されるバイナリはlinux用なのでホスト側（Mac）で実行できない...orz<br />そこで、cross compileができるイメージを探したところ、<a href="https://mzp.hatenablog.com/entry/2017/05/02/122348">この記事</a>の方が書いたDockerfileを参考に（ほぼ写経）して作成した。</p>
-<pre><code>$ docker run --rm -it rust:osx bash
+    <main>
+      <body>
+        <h1 id="rust環境をdockerで作成した">Rust環境をDockerで作成した</h1>
+        <p>DockerでRustの環境を作る際に、なんやかんや色々ハマってしまったので備忘録として。<br />
+            docker内でのコマンドは <code>(docker)$</code> って感じで書いています。</p>
+        <p>あと、便利に使えるようにzsh用のコマンド化したコードも載せています。</p>
+        <h2 id="作成環境">作成環境</h2>
+        <pre><code>MacBookPro == 2017 Core i5 16GB
+Docker desktop == 2.1.0.1</code></pre>
+        <h2 id="結果">結果</h2>
+        <script src="https://gist.github.com/kagari/d543da6c7ce525643a91a71eb716c88a.js"></script>
+
+        <h2 id="ハマったところ">ハマったところ</h2>
+        <h3 id="普通にrustの公式dockerイメージをpullしてきてもベースがlinuxなのでlinux向けにコンパイルされてしまう">普通にRustの公式Dockerイメージをpullしてきても、ベースがlinuxなのでLinux向けにコンパイルされてしまう</h3>
+        <p>cargo runまでは別に動くんだけど、buildとかしても作成されるバイナリはlinux用なのでホスト側（Mac）で実行できない...orz<br />そこで、cross compileができるイメージを探したところ、<a href="https://mzp.hatenablog.com/entry/2017/05/02/122348">この記事</a>の方が書いたDockerfileを参考に（ほぼ写経）して作成した。</p>
+        <pre><code>$ docker run --rm -it rust:osx bash
 (docker)$ CROSS_TRIPLE=x86_64-apple-darwin
 (docker)$ crossbuild cargo --target=x86_64-apple-darwin</code></pre>
-<p>これで無事にMacで動くバイナリのbuildができるようになった。</p>
-<h3 id="cross_triplex86_64-apple-darwin-この環境変数を書き込んでいる箇所をdockerfileの中に埋めようと思ったがうまくいかない"><code>CROSS_TRIPLE=x86_64-apple-darwin</code> この環境変数を書き込んでいる箇所をDockerfileの中に埋めようと思ったが、うまくいかない</h3>
-<p>原因が特定できていないが、 <code>CROSS_TRIPLE=x86_64-apple-darwin</code> という環境変数をDockerfileに下のように設定しても、うまくいかずにハマった。</p>
-<pre><code>ENV CROSS_TRIPLE=x86_64-apple-darwin
+        <p>これで無事にMacで動くバイナリのbuildができるようになった。</p>
+        <h3 id="cross_triplex86_64-apple-darwin-この環境変数を書き込んでいる箇所をdockerfileの中に埋めようと思ったがうまくいかない"><code>CROSS_TRIPLE=x86_64-apple-darwin</code> この環境変数を書き込んでいる箇所をDockerfileの中に埋めようと思ったが、うまくいかない</h3>
+        <p>原因が特定できていないが、 <code>CROSS_TRIPLE=x86_64-apple-darwin</code> という環境変数をDockerfileに下のように設定しても、うまくいかずにハマった。</p>
+        <pre><code>ENV CROSS_TRIPLE=x86_64-apple-darwin
 ...
 $(docker) echo $CROSS_TRIPLE
 # x86_64-apple-darwin14</code></pre>
-<p>！？<br />なぜかx86_64-apple-darwin <strong>14</strong> になってしまう。</p>
-<p>ARGからENVに落とし込んだり、無理やり設定しようとしたがうまくいかなかった。<br /><code>docker run CROSS_TRIPLE=x86_64-apple-darwin crossbuild cargo --target=x86_64-apple-darwin</code> こんな感じで無理やり設定しようともした。</p>
-<p>結果的に、Dockerfileに書くのを諦めて、以下のように <code>docker run -e</code> で設定して、 <code>cargo build</code> するとうまくいった。</p>
-<pre><code>docker run -e CROSS_TRIPLE=x86_64-apple-darwin cargo --target=x86_64-apple-darwin</code></pre>
+        <p>！？<br />なぜかx86_64-apple-darwin <strong>14</strong> になってしまう。</p>
+        <p>ARGからENVに落とし込んだり、無理やり設定しようとしたがうまくいかなかった。<br /><code>docker run CROSS_TRIPLE=x86_64-apple-darwin crossbuild cargo --target=x86_64-apple-darwin</code> こんな感じで無理やり設定しようともした。</p>
+        <p>結果的に、Dockerfileに書くのを諦めて、以下のように <code>docker run -e</code> で設定して、 <code>cargo build</code> するとうまくいった。</p>
+        <pre><code>docker run -e CROSS_TRIPLE=x86_64-apple-darwin cargo --target=x86_64-apple-darwin</code></pre>
+        </body>
+    </main>
+</html>
