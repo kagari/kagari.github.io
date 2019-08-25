@@ -13,22 +13,7 @@ Docker desktop == 2.1.0.1
 ```
 
 ## 結果
-- Dockerfile
-// TODO: gistのURLを貼ればいいかな
-
-- zshコマンド
-```
-function cargo {
-    case $1 in
-        (new)
-            docker run --rm -t -v $PWD:/work rust:osx cargo new $2 $3;;
-        (run)
-            docker run --rm -t -v $PWD:/work rust:osx cargo run $2 $3;;
-        (build)
-            docker run --rm -t -e CROSS_TRIPLE=x86_64-apple-darwin -v $PWD:/work rust:osx cargo build --target=x86_64-apple-darwin $2;;
-    esac
-}
-```
+<script src="https://gist.github.com/kagari/d543da6c7ce525643a91a71eb716c88a.js"></script>
 
 ## ハマったところ
 
