@@ -67,5 +67,5 @@ code {
   /* はみ出した時にスクロールできるようにする */
   overflow: scroll;
   white-space: pre;
-  display: block;
+  display: inline;
 }

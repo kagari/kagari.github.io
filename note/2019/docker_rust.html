@@ -25,7 +25,8 @@ Docker desktop == 2.1.0.1</code></pre>
 
         <h2 id="ハマったところ">ハマったところ</h2>
         <h3 id="普通にrustの公式dockerイメージをpullしてきてもベースがlinuxなのでlinux向けにコンパイルされてしまう">普通にRustの公式Dockerイメージをpullしてきても、ベースがlinuxなのでLinux向けにコンパイルされてしまう</h3>
-        <p>cargo runまでは別に動くんだけど、buildとかしても作成されるバイナリはlinux用なのでホスト側（Mac）で実行できない...orz<br />そこで、cross compileができるイメージを探したところ、<a href="https://mzp.hatenablog.com/entry/2017/05/02/122348">この記事</a>の方が書いたDockerfileを参考に（ほぼ写経）して作成した。</p>
+        <p>cargo runまでは別に動くんだけど、buildとかしても作成されるバイナリはlinux用なのでホスト側（Mac）で実行できない...orz<br />
+          そこで、cross compileができるイメージを探したところ、<a href="https://mzp.hatenablog.com/entry/2017/05/02/122348">この記事</a>の方が書いたDockerfileを参考に（ほぼ写経）して作成した。</p>
         <pre><code>$ docker run --rm -it rust:osx bash
 (docker)$ CROSS_TRIPLE=x86_64-apple-darwin
 (docker)$ crossbuild cargo --target=x86_64-apple-darwin</code></pre>
