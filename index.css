@@ -74,3 +74,9 @@ code {
     border-radius: 3px;
     display: block;
 }
+
+a.anchor {
+    display: block;
+    padding-top: 5%;
+    margin-top: -5%;
+}
