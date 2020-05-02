@@ -1,0 +1,82 @@
+html, body {
+    font-size: 18px;
+    color: #30343f;
+    background-color: #ffffff;
+    /* marginとpaddingを0にすることで、headerの上が透けないようにしている */
+    margin: 0px 2px 2px;
+    padding: 0px;
+}
+
+main {
+    padding-top: 80px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+header {
+    position: fixed;
+    height: 10%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 2px #daf0ee;
+}
+
+header p {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2em;
+    margin: 0.5em;
+}
+
+header a {
+    text-decoration: none;
+    color: #30343f;
+}
+
+h1 {
+    /* color: #30343f; */
+    position: relative;
+}
+
+h1:after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: -webkit-linear-gradient(to right, #94d1be, #daf0ee);
+    background: linear-gradient(to right, #94d1be, #daf0ee);
+}
+
+h2 {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #daf0ee;/*左線*/
+}
+
+code {
+  position: relative;
+  padding: 3px 3px 4px;
+  color: #666666;
+  background: #f4f4f4;
+  border: 1px solid #dddd;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 14px;
+  margin: 2em 0;
+  /* はみ出した時にスクロールできるようにする */
+  overflow: scroll;
+  white-space: pre;
+  display: inline;
+}
+
+.block {
+    padding: 10px 10px 7px;
+    border-left: 5px solid #94d1be;
+    border-radius: 3px;
+    display: block;
+}
+
+a.anchor {
+    display: block;
+    padding-top: 5%;
+    margin-top: -5%;
+}
