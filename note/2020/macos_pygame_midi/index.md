@@ -1,11 +1,24 @@
 # MIDI用の信号をMacOSで扱えるようにする
-
 参考：https://stackoverflow.com/questions/49543366/why-pygame-midi-doesnt-work-on-macos-whereas-pygame-mixer-does
+
 MIDI用の信号は普通のオーディオのOUTPUTでは使えないため、一度MIDI信号をDTMアプリなどを介してやるようにする必要がある。そのために、MacOSではAudio MIDI Setupという標準で入っているアプリを使用してDTMアプリに信号を渡してやるようにする。
+
 まず、Audio MIDI Setupアプリを起動して、Window→Show MIDI Studioを選択。
+
+![Screen Shot 2020-05-26 at 22.40.56](figs/Screen\ Shot\ 2020-05-26\ at\ 22.40.56.png)
+
 次に、MIDI Studioの中のIAC Driverというものをダブルクリックして開く。
+
+![Screen Shot 2020-05-26 at 22.41.25](figs/Screen\ Shot\ 2020-05-26\ at\ 22.41.25.png)
+
 次にDevice is Onlineにチェックを入れる事で、MIDI信号をGarageBandなどのDTMアプリに自動で入力してくれるようになる。
+
+![Screen Shot 2020-05-26 at 22.41.54](figs/Screen\ Shot\ 2020-05-26\ at\ 22.41.54.png)
+
 ちなみに、GarageBandを立ち上げている状態でこのDevice is onlineにチェックを入れると、下のような通知がくる。
+
+![Screen Shot 2020-05-26 at 22.53.27](figs/Screen\ Shot\ 2020-05-26\ at\ 22.53.27.png)
+
 これで、GarageBandで新規Projectを作成したら、pythonで作成した信号を聞く事ができる。
 
 # pythonからMIDI用の信号を作成し、音を再生する
