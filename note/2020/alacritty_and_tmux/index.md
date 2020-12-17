@@ -1,8 +1,10 @@
-# AlacrittyでiTerm2のように画面分割を使いたい！
 これは、[琉大 Advent Calendar 2020](https://adventar.org/calendars/5231)の17日目の記事です。
 
-これまでターミナルエミュレータはterminal.appやiTerm2、hyperなどを使ってきましたが、最近はAlacrittyで作業をしています。  
-Alacrittyは爆速なのですが、如何せんそのミニマルな設計から画面分割や新規タブの作成が行えないため不便だと感じやすく、新規参入者を減らしてしまっているような気がします。  
+# AlacrittyでiTerm2のように画面分割を使いたい！
+こんにちは、[kagari](https://twitter.com/kagarin_ie)です。
+
+私はこれまでterminal.appやiTerm2、hyperなどのターミナルエミュレータを使ってきましたが、最近はAlacrittyで作業をしています。  
+Alacrittyは爆速なのですが、如何せんそのミニマムな設計から画面分割や新規タブの作成が行えないため不便だと感じやすく、新規参入者を減らしてしまっているような気がします。  
 そこで、今回はTmuxと組み合わせてiTerm2風なキーバインドで画面分割や新規タブの作成が行えるようにしたいと思います。
 
 
