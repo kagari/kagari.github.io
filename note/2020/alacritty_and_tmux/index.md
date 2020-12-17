@@ -1,4 +1,4 @@
-# AlacrittyでiTerm2のように画面分割が使いたい！
+# AlacrittyでiTerm2のように画面分割を使いたい！
 これは、[琉大 Advent Calendar 2020](https://adventar.org/calendars/5231)の17日目の記事です。
 
 これまでターミナルエミュレータはterminal.appやiTerm2、hyperなどを使ってきましたが、最近はAlacrittyで作業をしています。  
