@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Errors on kagari</title>
-    <link>http://kagari.github.io/error/</link>
+    <link>//kagari.github.io/error/</link>
     <description>Recent content in Errors on kagari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://kagari.github.io/error/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="//kagari.github.io/error/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4)</title>
-      <link>http://kagari.github.io/error/opencv4_for_cpp/</link>
+      <link>//kagari.github.io/error/opencv4_for_cpp/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/error/opencv4_for_cpp/</guid>
+      <guid>//kagari.github.io/error/opencv4_for_cpp/</guid>
       <description>brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
 そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
 /usr/local/include/opencv /usr/local/include/opencv2 -&amp;gt; /usr/local/include/opencv4 &amp;lt;-new!  また、 opencv4 からC++コンパイラのバージョン 11 が必須になっている。

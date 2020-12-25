@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kagari</title>
-    <link>http://kagari.github.io/</link>
+    <link>//kagari.github.io/</link>
     <description>Recent content on kagari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 26 Dec 2020 02:13:25 +0900</lastBuildDate><atom:link href="http://kagari.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Dec 2020 02:13:25 +0900</lastBuildDate><atom:link href="//kagari.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LuaLatexことはじめ</title>
-      <link>http://kagari.github.io/note/2020/macos_lualatex/</link>
+      <link>//kagari.github.io/note/2020/macos_lualatex/</link>
       <pubDate>Sat, 26 Dec 2020 02:13:25 +0900</pubDate>
       
-      <guid>http://kagari.github.io/note/2020/macos_lualatex/</guid>
+      <guid>//kagari.github.io/note/2020/macos_lualatex/</guid>
       <description>LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。
 LuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。
 MacTexのinstall MacTexをbrewで入れる。
@@ -23,10 +23,10 @@ $ lualatex main.tex # 確認 $ ls main.</description>
     
     <item>
       <title>python環境構築</title>
-      <link>http://kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
+      <link>//kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
       <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
+      <guid>//kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
       <description>pyenv
 python自体のバージョンを管理する pipenv
 ライブラリ・パッケージを管理をする  pyenvのinstall brew install pyenv 設定ファイルに記述。
@@ -38,10 +38,10 @@ pyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3
     
     <item>
       <title>AlacrittyでiTerm2のように画面分割を使いたい！</title>
-      <link>http://kagari.github.io/note/2020/alacritty_and_tmux/</link>
+      <link>//kagari.github.io/note/2020/alacritty_and_tmux/</link>
       <pubDate>Fri, 18 Dec 2020 09:20:45 +0900</pubDate>
       
-      <guid>http://kagari.github.io/note/2020/alacritty_and_tmux/</guid>
+      <guid>//kagari.github.io/note/2020/alacritty_and_tmux/</guid>
       <description>これは、琉大 Advent Calendar 2020の17日目の記事です。
 こんにちは、kagariです。
 私はこれまでterminal.appやiTerm2、hyperなどのターミナルエミュレータを使ってきましたが、最近はAlacrittyで作業をしています。
@@ -68,10 +68,10 @@ Tmuxはデフォルトのプレフィックスキーが Ctrl+b になってお�
     
     <item>
       <title>MIDI用の信号をMacOSで扱えるようにする</title>
-      <link>http://kagari.github.io/note/2020/macos_pygame_midi/</link>
+      <link>//kagari.github.io/note/2020/macos_pygame_midi/</link>
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/note/2020/macos_pygame_midi/</guid>
+      <guid>//kagari.github.io/note/2020/macos_pygame_midi/</guid>
       <description>参考：Why pygame.midi doesn&amp;rsquo;t work on macos whereas pygame.mixer does
 MIDI用の信号は普通のオーディオのOUTPUTでは使えないため、一度MIDI信号をDTMアプリなどを介してやるようにする必要がある。そのために、MacOSではAudio MIDI Setupという標準で入っているアプリを使用してDTMアプリに信号を渡してやるようにする。
 まず、Audio MIDI Setupアプリを起動して、Window→Show MIDI Studioを選択。
@@ -88,10 +88,10 @@ apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf
     
     <item>
       <title>NLP100本ノック</title>
-      <link>http://kagari.github.io/note/2020/nlp100/</link>
+      <link>//kagari.github.io/note/2020/nlp100/</link>
       <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/note/2020/nlp100/</guid>
+      <guid>//kagari.github.io/note/2020/nlp100/</guid>
       <description>ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。
 章が終わるたびに載せていきたいと思います。
 目次  第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章  第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
@@ -108,10 +108,10 @@ def typoglycemia(string: str): for s in string.split(&amp;#34; &amp;#34;): if le
     
     <item>
       <title>enPiT振り返り</title>
-      <link>http://kagari.github.io/note/2019/enpit/</link>
+      <link>//kagari.github.io/note/2019/enpit/</link>
       <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/note/2019/enpit/</guid>
+      <guid>//kagari.github.io/note/2019/enpit/</guid>
       <description>enPiT2019が終わったので、ちょっと記憶が霞む前に振り返りを。
 目次  enPiTの受講動機 enPiTの流れ enPiTの効果 自分の振り返り 最後に  enPiTの受講動機 受講しようと思った理由としては、ソフトウェア演習の授業でチーム開発をやってて「もう少し上手くできたなぁ」と思ってたので、力試し &amp;amp; チーム開発周りの力を身につけるために参加しました。
 まぁ、決定打は先輩が「やった方がいいよ！！」と言ってたからですね、はい。 あとは友達が参加するからとかそんな感じ。
@@ -124,10 +124,10 @@ enPiTの効果 enPiTを受講するメリット・デメリットとしては以
     
     <item>
       <title>Rust環境をDockerで作成した</title>
-      <link>http://kagari.github.io/note/2019/docker_rust/</link>
+      <link>//kagari.github.io/note/2019/docker_rust/</link>
       <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/note/2019/docker_rust/</guid>
+      <guid>//kagari.github.io/note/2019/docker_rust/</guid>
       <description>DockerでRustの環境を作る際に、なんやかんや色々ハマってしまったので備忘録として。
 docker内でのコマンドは (docker)$ って感じで書いています。
 あと、便利に使えるようにzsh用のコマンド化したコードも載せています。
@@ -144,10 +144,10 @@ docker run CROSS_TRIPLE=x86_64-apple-darwin crossbuild cargo --target=x86_64-app
     
     <item>
       <title>hyper (terminal)を使ってみた</title>
-      <link>http://kagari.github.io/note/install_hyper/</link>
+      <link>//kagari.github.io/note/install_hyper/</link>
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/note/install_hyper/</guid>
+      <guid>//kagari.github.io/note/install_hyper/</guid>
       <description>1年間itermを使ってきたんですが、最近(ちょっと前から？)人気なhyperが気になっていたので少し使ってみました。
 参考 【Hyper】良い感じのターミナル環境を構築 - Qiita
 おしゃれなターミナルHyperのテーマ変更、プラグイン追加、日本語化するための手順
@@ -162,10 +162,10 @@ brew cask install hyper これだけですw
     
     <item>
       <title>RSA暗号方式をpythonで実装してみる</title>
-      <link>http://kagari.github.io/note/2018/adventcalender2018/</link>
+      <link>//kagari.github.io/note/2018/adventcalender2018/</link>
       <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/note/2018/adventcalender2018/</guid>
+      <guid>//kagari.github.io/note/2018/adventcalender2018/</guid>
       <description>琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。
 こんにちは、kagariです！
 私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw
@@ -199,10 +199,10 @@ def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m 
     
     <item>
       <title>C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4)</title>
-      <link>http://kagari.github.io/error/opencv4_for_cpp/</link>
+      <link>//kagari.github.io/error/opencv4_for_cpp/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/error/opencv4_for_cpp/</guid>
+      <guid>//kagari.github.io/error/opencv4_for_cpp/</guid>
       <description>brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
 そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
 /usr/local/include/opencv /usr/local/include/opencv2 -&amp;gt; /usr/local/include/opencv4 &amp;lt;-new!  また、 opencv4 からC++コンパイラのバージョン 11 が必須になっている。
@@ -218,10 +218,10 @@ g++ @@@.</description>
     
     <item>
       <title>Octave GUIのインストール方法</title>
-      <link>http://kagari.github.io/note/install_octave/</link>
+      <link>//kagari.github.io/note/install_octave/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://kagari.github.io/note/install_octave/</guid>
+      <guid>//kagari.github.io/note/install_octave/</guid>
       <description>octave GUIと検索してもGUIソフトの入れ方が古いようで何度もhomebrewに怒られてしましました。
 基本的に参考にしたのは以下の記事です。
 macにoctaveのインストール 書き中~
