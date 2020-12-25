@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>python環境構築 | kagari</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="pyenv
+python自体のバージョンを管理する pipenv
+ライブラリ・パッケージを管理をする  pyenvのinstall brew install pyenv 設定ファイルに記述。
+以下はfish用の設定なので適宜zshやbashように書き換える必要がある。
+# config.fish if set PIPENV_VENV_IN_PROJECT or command -v pyenv &amp;&gt; /dev/null pyenv init - | source # 仮想環境置き場をプロジェクトディレクトリに含めるようにする set -x PIPENV_VENV_IN_PROJECT 1 end pipenvのinstall pipenvはpipでinstallするため、まずはpyenvでグローバルの仮想環境を作成しておくと良い。
+pyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3.9.0 # installしたversionをglobalに割り当てる pip install pipenv # 確認 which pipenv /usr/local/var/pyenv/shims/pipenv 仮想環境の作成 ここでは test ディレクトリ（プロジェクト）を作成して、その中に仮想環境を作成する。
+# testプロジェクトの作成 mkdir test cd test # pythonのインストール pyenv install 3.10-dev # もしくは以下のようにpipenvを使ってpyenvと同じことができる pipenv --python 3.">
+<meta name="author" content="">
+<link rel="canonical" href="http://kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/" />
+<link href="http://kagari.github.io/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="http://kagari.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kagari.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kagari.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kagari.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kagari.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<meta property="og:title" content="python環境構築" />
+<meta property="og:description" content="pyenv
+python自体のバージョンを管理する pipenv
+ライブラリ・パッケージを管理をする  pyenvのinstall brew install pyenv 設定ファイルに記述。
+以下はfish用の設定なので適宜zshやbashように書き換える必要がある。
+# config.fish if set PIPENV_VENV_IN_PROJECT or command -v pyenv &amp;&gt; /dev/null pyenv init - | source # 仮想環境置き場をプロジェクトディレクトリに含めるようにする set -x PIPENV_VENV_IN_PROJECT 1 end pipenvのinstall pipenvはpipでinstallするため、まずはpyenvでグローバルの仮想環境を作成しておくと良い。
+pyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3.9.0 # installしたversionをglobalに割り当てる pip install pipenv # 確認 which pipenv /usr/local/var/pyenv/shims/pipenv 仮想環境の作成 ここでは test ディレクトリ（プロジェクト）を作成して、その中に仮想環境を作成する。
+# testプロジェクトの作成 mkdir test cd test # pythonのインストール pyenv install 3.10-dev # もしくは以下のようにpipenvを使ってpyenvと同じことができる pipenv --python 3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/" />
+<meta property="article:published_time" content="2020-12-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="python環境構築"/>
+<meta name="twitter:description" content="pyenv
+python自体のバージョンを管理する pipenv
+ライブラリ・パッケージを管理をする  pyenvのinstall brew install pyenv 設定ファイルに記述。
+以下はfish用の設定なので適宜zshやbashように書き換える必要がある。
+# config.fish if set PIPENV_VENV_IN_PROJECT or command -v pyenv &amp;&gt; /dev/null pyenv init - | source # 仮想環境置き場をプロジェクトディレクトリに含めるようにする set -x PIPENV_VENV_IN_PROJECT 1 end pipenvのinstall pipenvはpipでinstallするため、まずはpyenvでグローバルの仮想環境を作成しておくと良い。
+pyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3.9.0 # installしたversionをglobalに割り当てる pip install pipenv # 確認 which pipenv /usr/local/var/pyenv/shims/pipenv 仮想環境の作成 ここでは test ディレクトリ（プロジェクト）を作成して、その中に仮想環境を作成する。
+# testプロジェクトの作成 mkdir test cd test # pythonのインストール pyenv install 3.10-dev # もしくは以下のようにpipenvを使ってpyenvと同じことができる pipenv --python 3."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "python環境構築",
+  "name": "python環境構築",
+  "description": "pyenv\npython自体のバージョンを管理する pipenv\nライブラリ・パッケージを管理をする  pyenvのinstall brew install pyenv 設定ファイルに記述。\n以下はfish用の設定なので適宜zshやbashように書き換える必要がある。\n# config.fish if set PIPENV_VENV_IN_PROJECT …",
+  "keywords": [
+    
+  ],
+  "articleBody": " pyenv\npython自体のバージョンを管理する pipenv\nライブラリ・パッケージを管理をする  pyenvのinstall brew install pyenv 設定ファイルに記述。\n以下はfish用の設定なので適宜zshやbashように書き換える必要がある。\n# config.fish if set PIPENV_VENV_IN_PROJECT or command -v pyenv \u0026 /dev/null pyenv init - | source # 仮想環境置き場をプロジェクトディレクトリに含めるようにする set -x PIPENV_VENV_IN_PROJECT 1 end pipenvのinstall pipenvはpipでinstallするため、まずはpyenvでグローバルの仮想環境を作成しておくと良い。\npyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3.9.0 # installしたversionをglobalに割り当てる pip install pipenv # 確認 which pipenv /usr/local/var/pyenv/shims/pipenv 仮想環境の作成 ここでは test ディレクトリ（プロジェクト）を作成して、その中に仮想環境を作成する。\n# testプロジェクトの作成 mkdir test cd test # pythonのインストール pyenv install 3.10-dev # もしくは以下のようにpipenvを使ってpyenvと同じことができる pipenv --python 3.10-dev # 裏でpyenvを使用している # pipenvで作成した環境に入る pipenv shell ちなみに、.envファイルを用意していればpipenvで仮想環境に入る際に環境変数を自動で読み込んでくれるらしい。\n仮想環境及びpipenvの使い方 # ライブラリをバージョン指定せずにインストール pipenv install numpy # バージョン指定してインストール pipenv install numpy==1.14 # バージョンを固定 pipenv install numpy~=1.14 # メジャーバージョンを固定 numpy==1.* と同義 # ライブラリのアップデート pipenv update 参考資料  【Ubuntu 18.04】pyenv+pipenvでPython環境構築|Qiita  ",
+  "wordCount" : "107",
+  "inLanguage": "en",
+  "datePublished": "2020-12-24T00:00:00Z",
+  "dateModified": "2020-12-24T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "kagari",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kagari.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kagari.github.io/" accesskey="h" title="kagari (Alt + H)">kagari</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()"></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      python環境構築
+    </h1>
+    <div class="post-meta">December 24, 2020
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<ul>
+<li>pyenv<br>
+python自体のバージョンを管理する</li>
+<li>pipenv<br>
+ライブラリ・パッケージを管理をする</li>
+</ul>
+<h2 id="pyenvのinstall">pyenvのinstall<a hidden class="anchor" aria-hidden="true" href="#pyenvのinstall">#</a></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install pyenv
+</code></pre></div><p>設定ファイルに記述。<br>
+以下はfish用の設定なので適宜zshやbashように書き換える必要がある。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># config.fish</span>
+<span style="color:#66d9ef">if</span> set PIPENV_VENV_IN_PROJECT or command -v pyenv &amp;&gt; /dev/null
+    pyenv init - | source
+    <span style="color:#75715e"># 仮想環境置き場をプロジェクトディレクトリに含めるようにする</span>
+    set -x PIPENV_VENV_IN_PROJECT <span style="color:#ae81ff">1</span>
+end
+</code></pre></div><h2 id="pipenvのinstall">pipenvのinstall<a hidden class="anchor" aria-hidden="true" href="#pipenvのinstall">#</a></h2>
+<p>pipenvはpipでinstallするため、まずはpyenvでグローバルの仮想環境を作成しておくと良い。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pyenv install 3.9.0  <span style="color:#75715e"># pythonのversionは好きなものでいい</span>
+pyenv global 3.9.0   <span style="color:#75715e"># installしたversionをglobalに割り当てる</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip install pipenv
+
+<span style="color:#75715e"># 確認</span>
+which pipenv
+/usr/local/var/pyenv/shims/pipenv
+</code></pre></div><h2 id="仮想環境の作成">仮想環境の作成<a hidden class="anchor" aria-hidden="true" href="#仮想環境の作成">#</a></h2>
+<p>ここでは <code>test</code> ディレクトリ（プロジェクト）を作成して、その中に仮想環境を作成する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># testプロジェクトの作成</span>
+mkdir test
+cd test
+
+<span style="color:#75715e"># pythonのインストール</span>
+pyenv install 3.10-dev
+<span style="color:#75715e"># もしくは以下のようにpipenvを使ってpyenvと同じことができる</span>
+pipenv --python 3.10-dev  <span style="color:#75715e"># 裏でpyenvを使用している</span>
+
+<span style="color:#75715e"># pipenvで作成した環境に入る</span>
+pipenv shell
+</code></pre></div><p>ちなみに、<code>.env</code>ファイルを用意していればpipenvで仮想環境に入る際に環境変数を自動で読み込んでくれるらしい。</p>
+<h2 id="仮想環境及びpipenvの使い方">仮想環境及びpipenvの使い方<a hidden class="anchor" aria-hidden="true" href="#仮想環境及びpipenvの使い方">#</a></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># ライブラリをバージョン指定せずにインストール</span>
+pipenv install numpy
+
+<span style="color:#75715e"># バージョン指定してインストール</span>
+pipenv install numpy<span style="color:#f92672">==</span>1.14  <span style="color:#75715e"># バージョンを固定</span>
+pipenv install numpy~<span style="color:#f92672">=</span>1.14  <span style="color:#75715e"># メジャーバージョンを固定 numpy==1.* と同義</span>
+
+<span style="color:#75715e"># ライブラリのアップデート</span>
+pipenv update
+</code></pre></div><h2 id="参考資料">参考資料<a hidden class="anchor" aria-hidden="true" href="#参考資料">#</a></h2>
+<ul>
+<li><a href="https://qiita.com/fury00812/items/08036e78a449d1cbeb48">【Ubuntu 18.04】pyenv+pipenvでPython環境構築|Qiita</a></li>
+</ul>
+
+</div>
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="http://kagari.github.io/">kagari</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="http://kagari.github.io/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>RSA暗号方式をpythonで実装してみる | kagari</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。
+こんにちは、kagariです！
+私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw
+記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。
+何か至らない点があっても暖かい目で見守ってくださいm(__)m
+RSA暗号方式ってなに？ RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wikiより)
+うん、完全に理解した(多分)
+要するに素数を使った暗号方式だね!
+今回はこれをpythonで実装していく
+アルゴリズム 鍵の生成 まずは公開鍵の生成を行う。
+2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。
+さらに、nとmとが互いに素である数$e$を定める。
+この(e,n)が公開鍵である。
+次に、秘密鍵の生成を行う。
+ed mod ((p-1)(q-1)) = 1となるようなdを見つける。
+このdが秘密鍵である。
+公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。
+暗号化と複合 暗号化 平文(M)を暗号化すると、暗号文(C)は
+C=M^e mod nとなる。
+これで暗号化を行う。
+複合 複合は、暗号文(C)を以下のようにして平文(M)にすることができる。
+M=C^d mod n
+これで複合を行う。
+実際に実装していく 早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。
+が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()
+使用するライブラリはmathだけ!
+import math  とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。
+まずは公開鍵から
+def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e &#43;= 1 return e, n  次に、秘密鍵を生成する関数を用意">
+<meta name="author" content="">
+<link rel="canonical" href="http://kagari.github.io/note/2018/adventcalender2018/" />
+<link href="http://kagari.github.io/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="http://kagari.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kagari.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kagari.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kagari.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kagari.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<meta property="og:title" content="RSA暗号方式をpythonで実装してみる" />
+<meta property="og:description" content="琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。
+こんにちは、kagariです！
+私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw
+記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。
+何か至らない点があっても暖かい目で見守ってくださいm(__)m
+RSA暗号方式ってなに？ RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wikiより)
+うん、完全に理解した(多分)
+要するに素数を使った暗号方式だね!
+今回はこれをpythonで実装していく
+アルゴリズム 鍵の生成 まずは公開鍵の生成を行う。
+2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。
+さらに、nとmとが互いに素である数$e$を定める。
+この(e,n)が公開鍵である。
+次に、秘密鍵の生成を行う。
+ed mod ((p-1)(q-1)) = 1となるようなdを見つける。
+このdが秘密鍵である。
+公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。
+暗号化と複合 暗号化 平文(M)を暗号化すると、暗号文(C)は
+C=M^e mod nとなる。
+これで暗号化を行う。
+複合 複合は、暗号文(C)を以下のようにして平文(M)にすることができる。
+M=C^d mod n
+これで複合を行う。
+実際に実装していく 早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。
+が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()
+使用するライブラリはmathだけ!
+import math  とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。
+まずは公開鍵から
+def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e &#43;= 1 return e, n  次に、秘密鍵を生成する関数を用意" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kagari.github.io/note/2018/adventcalender2018/" />
+<meta property="article:published_time" content="2018-12-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-12-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RSA暗号方式をpythonで実装してみる"/>
+<meta name="twitter:description" content="琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。
+こんにちは、kagariです！
+私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw
+記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。
+何か至らない点があっても暖かい目で見守ってくださいm(__)m
+RSA暗号方式ってなに？ RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wikiより)
+うん、完全に理解した(多分)
+要するに素数を使った暗号方式だね!
+今回はこれをpythonで実装していく
+アルゴリズム 鍵の生成 まずは公開鍵の生成を行う。
+2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。
+さらに、nとmとが互いに素である数$e$を定める。
+この(e,n)が公開鍵である。
+次に、秘密鍵の生成を行う。
+ed mod ((p-1)(q-1)) = 1となるようなdを見つける。
+このdが秘密鍵である。
+公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。
+暗号化と複合 暗号化 平文(M)を暗号化すると、暗号文(C)は
+C=M^e mod nとなる。
+これで暗号化を行う。
+複合 複合は、暗号文(C)を以下のようにして平文(M)にすることができる。
+M=C^d mod n
+これで複合を行う。
+実際に実装していく 早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。
+が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()
+使用するライブラリはmathだけ!
+import math  とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。
+まずは公開鍵から
+def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e &#43;= 1 return e, n  次に、秘密鍵を生成する関数を用意"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RSA暗号方式をpythonで実装してみる",
+  "name": "RSA暗号方式をpythonで実装してみる",
+  "description": "琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。\nこんにちは、kagariです！\n私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw\n記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。\n何か至らない点があっても暖か …",
+  "keywords": [
+    
+  ],
+  "articleBody": "琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。\nこんにちは、kagariです！\n私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw\n記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。\n何か至らない点があっても暖かい目で見守ってくださいm(__)m\nRSA暗号方式ってなに？ RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wikiより)\nうん、完全に理解した(多分)\n要するに素数を使った暗号方式だね!\n今回はこれをpythonで実装していく\nアルゴリズム 鍵の生成 まずは公開鍵の生成を行う。\n2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。\nさらに、nとmとが互いに素である数$e$を定める。\nこの(e,n)が公開鍵である。\n次に、秘密鍵の生成を行う。\ned mod ((p-1)(q-1)) = 1となるようなdを見つける。\nこのdが秘密鍵である。\n公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。\n暗号化と複合 暗号化 平文(M)を暗号化すると、暗号文(C)は\nC=M^e mod nとなる。\nこれで暗号化を行う。\n複合 複合は、暗号文(C)を以下のようにして平文(M)にすることができる。\nM=C^d mod n\nこれで複合を行う。\n実際に実装していく 早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。\nが、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()\n使用するライブラリはmathだけ!\nimport math  とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。\nまずは公開鍵から\ndef get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e += 1 return e, n  次に、秘密鍵を生成する関数を用意\ndef get_private_number(e, p, q): d = 1 while True: if (e*d) % ((p-1)*(q-1)) == 1: break; d+=1 return d  実際に生成してみる。\np=3 q=7 e, n = get_public_number(p,q) d = get_private_number(e, p, q)  それぞれe,n,dを出力してみるとe=5, n=21, d=5になった\nこれで暗号化と複合のための鍵が生成できた。\n次は暗号化と複合を行う関数を実装する\n今回は平文をM、暗号文をCとする\n# 暗号化する関数 def encryption(M, e, n): C = M**(e) % n return C # 複合する関数 def composite(C, d, n): M = C**d % n return M  実際に暗号化、複合を行なってみる\nM = 3 # 平文 C = encryption(M, e, n) # C = 12 comp_M = composite(C, d, n) # comp_M = 3  できた！！\nこれで、RSA暗号方式の一通りの実装ができました。\nただ、今回はp,qを自分で決めて鍵の生成を行い、さらにeは互いに素な数の中でもっとも小さな数を用いているので、このままでは全然暗号化としては役に立たなさそうですねw\nまとめ 結構RSAの理論的(?)には簡単に実装することができました。\nただ、p,q(大きな数の素数)の生成や暗号鍵の生成で技術・知識的に不足していると感じました…\n次実装する時は(多分ない)もっと暗号として使えるように実装していきたいなー\n何かアドバイスなどがあればTwitterの方によろしくお願いします！\nps\n数式ってgithub pagesでどうかけばいいんや…\n",
+  "wordCount" : "171",
+  "inLanguage": "en",
+  "datePublished": "2018-12-08T00:00:00Z",
+  "dateModified": "2018-12-08T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kagari.github.io/note/2018/adventcalender2018/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "kagari",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kagari.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kagari.github.io/" accesskey="h" title="kagari (Alt + H)">kagari</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()"></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      RSA暗号方式をpythonで実装してみる
+    </h1>
+    <div class="post-meta">December 8, 2018
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><a href="https://adventar.org/calendars/3436">琉球大学工学科知能情報コースAdventCalender2018</a>の8日目の記事です。</p>
+<p>こんにちは、<a href="https://twitter.com/kagarin_ie">kagari</a>です！</p>
+<p>私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw<br>
+記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。</p>
+<p>何か至らない点があっても暖かい目で見守ってくださいm(__)m</p>
+<h2 id="rsa暗号方式ってなに">RSA暗号方式ってなに？<a hidden class="anchor" aria-hidden="true" href="#rsa暗号方式ってなに">#</a></h2>
+<p>RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wikiより)<br>
+うん、完全に理解した(多分)</p>
+<p>要するに<strong>素数を使った暗号方式</strong>だね!<br>
+今回はこれをpythonで実装していく</p>
+<h2 id="アルゴリズム">アルゴリズム<a hidden class="anchor" aria-hidden="true" href="#アルゴリズム">#</a></h2>
+<h3 id="鍵の生成">鍵の生成<a hidden class="anchor" aria-hidden="true" href="#鍵の生成">#</a></h3>
+<p>まずは公開鍵の生成を行う。<br>
+2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。<br>
+さらに、nとmとが互いに素である数$e$を定める。<br>
+この(e,n)が公開鍵である。</p>
+<p>次に、秘密鍵の生成を行う。<br>
+ed mod ((p-1)(q-1)) = 1となるようなdを見つける。<br>
+このdが秘密鍵である。</p>
+<p>公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。</p>
+<h3 id="暗号化と複合">暗号化と複合<a hidden class="anchor" aria-hidden="true" href="#暗号化と複合">#</a></h3>
+<h4 id="暗号化">暗号化<a hidden class="anchor" aria-hidden="true" href="#暗号化">#</a></h4>
+<p>平文(M)を暗号化すると、暗号文(C)は<br>
+C=M^e mod nとなる。<br>
+これで暗号化を行う。</p>
+<h4 id="複合">複合<a hidden class="anchor" aria-hidden="true" href="#複合">#</a></h4>
+<p>複合は、暗号文(C)を以下のようにして平文(M)にすることができる。<br>
+M=C^d mod n<br>
+これで複合を行う。</p>
+<h2 id="実際に実装していく">実際に実装していく<a hidden class="anchor" aria-hidden="true" href="#実際に実装していく">#</a></h2>
+<p>早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。<br>
+が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()</p>
+<p>使用するライブラリはmathだけ!</p>
+<pre><code>import math
+</code></pre>
+<p>とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。<br>
+まずは公開鍵から</p>
+<pre><code>def get_public_number(p, q):
+    n = p*q
+
+    # mと互いに素な数eを見つける
+    m = (p-1)*(q-1)
+    e = 2
+    while math.gcd(m, e) != 1:
+        e += 1
+    return e, n
+</code></pre>
+<p>次に、秘密鍵を生成する関数を用意</p>
+<pre><code>def get_private_number(e, p, q):
+    d = 1
+    while True:
+        if (e*d) % ((p-1)*(q-1)) == 1:
+            break;
+    d+=1
+    return d
+</code></pre>
+<p>実際に生成してみる。</p>
+<pre><code>p=3
+q=7
+
+e, n = get_public_number(p,q)
+d = get_private_number(e, p, q)
+</code></pre>
+<p>それぞれe,n,dを出力してみるとe=5, n=21, d=5になった<br>
+これで暗号化と複合のための鍵が生成できた。</p>
+<p>次は暗号化と複合を行う関数を実装する<br>
+今回は平文をM、暗号文をCとする</p>
+<pre><code># 暗号化する関数
+def encryption(M, e, n):
+    C = M**(e) % n
+    return C
+
+# 複合する関数
+def composite(C, d, n):
+    M = C**d % n
+    return M
+</code></pre>
+<p>実際に暗号化、複合を行なってみる</p>
+<pre><code>M = 3 # 平文
+C = encryption(M, e, n)
+# C = 12
+comp_M = composite(C, d, n)
+# comp_M = 3
+</code></pre>
+<p>できた！！</p>
+<p>これで、RSA暗号方式の一通りの実装ができました。<br>
+ただ、今回はp,qを自分で決めて鍵の生成を行い、さらにeは互いに素な数の中でもっとも小さな数を用いているので、このままでは全然暗号化としては役に立たなさそうですねw</p>
+<h2 id="まとめ">まとめ<a hidden class="anchor" aria-hidden="true" href="#まとめ">#</a></h2>
+<p>結構RSAの理論的(?)には簡単に実装することができました。<br>
+ただ、p,q(大きな数の素数)の生成や暗号鍵の生成で技術・知識的に不足していると感じました&hellip;</p>
+<p>次実装する時は(多分ない)もっと暗号として使えるように実装していきたいなー</p>
+<p>何かアドバイスなどがあれば<a href="https://twitter.com/kagarin_ie">Twitter</a>の方によろしくお願いします！</p>
+<p><strong>ps</strong><br>
+数式ってgithub pagesでどうかけばいいんや&hellip;</p>
+
+</div>
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="http://kagari.github.io/">kagari</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="http://kagari.github.io/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

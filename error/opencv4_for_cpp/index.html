@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4) | kagari</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
+そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
+/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new!  また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
+コンパイルする際のコマンドは以下のようになる
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
+brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
+brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる
+dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
+バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
+brew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る
+g&#43;&#43; @@@.">
+<meta name="author" content="">
+<link rel="canonical" href="http://kagari.github.io/error/opencv4_for_cpp/" />
+<link href="http://kagari.github.io/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="http://kagari.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kagari.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kagari.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kagari.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kagari.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<meta property="og:title" content="C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4)" />
+<meta property="og:description" content="brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
+そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
+/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new!  また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
+コンパイルする際のコマンドは以下のようになる
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
+brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
+brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる
+dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
+バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
+brew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る
+g&#43;&#43; @@@." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kagari.github.io/error/opencv4_for_cpp/" />
+<meta property="article:published_time" content="2018-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-10-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4)"/>
+<meta name="twitter:description" content="brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
+そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
+/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new!  また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
+コンパイルする際のコマンドは以下のようになる
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
+brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
+brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる
+dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
+バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
+brew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る
+g&#43;&#43; @@@."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "C++のコンパイル時にopencvが見つからない(opencv4)",
+  "name": "C\u002b\u002bのコンパイル時にopencvが見つからない(opencv4)",
+  "description": "brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた\nそのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった\n/usr/local/include/opencv …",
+  "keywords": [
+    
+  ],
+  "articleBody": "brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた\nそのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった\n/usr/local/include/opencv /usr/local/include/opencv2 - /usr/local/include/opencv4  また、 opencv4 からC++コンパイラのバージョン 11 が必須になっている。\nコンパイルする際のコマンドは以下のようになる\ng++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった\nbrewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする\nbrew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる\ndyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい\nバージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す\nbrew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る\ng++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv`  参考文献 OpenCV(C++)の画像処理メモ - Qiita\nOpenCVインストール構成の変遷（OpenCV 3.4.3，3.4.4，4.0.0） - Qiita\nSetting up OpenCV and C++ development environment in Xcode for Computer Vision projects\nHomebrewで旧バージョンをインストールする方法(brew versionsはもう使えない) - Qiita\n",
+  "wordCount" : "98",
+  "inLanguage": "en",
+  "datePublished": "2018-10-01T00:00:00Z",
+  "dateModified": "2018-10-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kagari.github.io/error/opencv4_for_cpp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "kagari",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kagari.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kagari.github.io/" accesskey="h" title="kagari (Alt + H)">kagari</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()"></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4)
+    </h1>
+    <div class="post-meta">October 1, 2018
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><code>brew file update</code> をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが <code>4.0.1</code> に上がっていた<br>
+そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった</p>
+<pre><code>/usr/local/include/opencv
+/usr/local/include/opencv2
+-&gt; /usr/local/include/opencv4  &lt;-new!
+</code></pre>
+<p>また、 <code>opencv4</code> からC++コンパイラのバージョン <code>11</code> が必須になっている。</p>
+<p>コンパイルする際のコマンドは以下のようになる</p>
+<pre><code>g++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv4`
+</code></pre>
+<p>今回、 <code>opencv3.x</code> を使用したかったのでdowngradeしないといけなくなった<br>
+brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする</p>
+<pre><code>brew info opencv  # 入っているバージョンを確認
+brew switch opencv 3.4.3_2  # 過去のバージョンを再インストール
+</code></pre>
+<p>そのままコンパイルするとエラーがでる</p>
+<pre><code>dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib
+  Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib
+  Reason: image not found
+</code></pre>
+<p>どうやら <code>usr/local/opt/openblas</code> というライブラリが読み込め無いらしい<br>
+バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す</p>
+<pre><code>brew switch openblas 0.3.4
+</code></pre>
+<p>この状態で、以下のようにコンパイルすると通る</p>
+<pre><code>g++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv`
+</code></pre>
+<h2 id="参考文献">参考文献<a hidden class="anchor" aria-hidden="true" href="#参考文献">#</a></h2>
+<p><a href="https://qiita.com/yoyoyo_/items/aada199371f6802bb887">OpenCV(C++)の画像処理メモ - Qiita</a><br>
+<a href="https://qiita.com/dandelion1124/items/eae435e601fba2adb0d1">OpenCVインストール構成の変遷（OpenCV 3.4.3，3.4.4，4.0.0） - Qiita</a><br>
+<a href="https://medium.com/@jaskaranvirdi/setting-up-opencv-and-c-development-environment-in-xcode-b6027728003">Setting up OpenCV and C++ development environment in Xcode for Computer Vision projects</a><br>
+<a href="https://qiita.com/honeniq/items/778cc08d2db78e6774d8">Homebrewで旧バージョンをインストールする方法(brew versionsはもう使えない) - Qiita</a></p>
+
+</div>
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="http://kagari.github.io/">kagari</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

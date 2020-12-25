@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Errors on kagari</title>
+    <link>http://kagari.github.io/error/</link>
+    <description>Recent content in Errors on kagari</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://kagari.github.io/error/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4)</title>
+      <link>http://kagari.github.io/error/opencv4_for_cpp/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://kagari.github.io/error/opencv4_for_cpp/</guid>
+      <description>brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
+そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
+/usr/local/include/opencv /usr/local/include/opencv2 -&amp;gt; /usr/local/include/opencv4 &amp;lt;-new!  また、 opencv4 からC++コンパイラのバージョン 11 が必須になっている。
+コンパイルする際のコマンドは以下のようになる
+g++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
+brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
+brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる
+dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
+バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
+brew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る
+g++ @@@.</description>
+    </item>
+    
+  </channel>
+</rss>

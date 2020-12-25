@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>LuaLatexことはじめ | kagari</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。
+LuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。
+MacTexのinstall MacTexをbrewで入れる。
+$ brew install mactex-no-gui ... Password: installer: Package name is MacTeX installer: choices changes file &#39;/var/folders/zy/....xml&#39; applied installer: Installing at base path / installer: The install was successful. 🍺 mactex-no-gui was successfully installed! # shellを再起動する $ exec $SHELL -l # LuaLatexが入っているか確認 $ which lualatex /Library/TeX/texbin/lualatex 適当にtexファイルを書く。
+% main.tex \documentclass{ltjsarticle} \usepackage{luatexja} \begin{document} \section{hoge} hogehoge, fugafuga. \subsection{fuga} fugafuga, hogehoge. hogefuga. \LaTeX \end{document} コンパイル。
+$ lualatex main.tex # 確認 $ ls main.">
+<meta name="author" content="">
+<link rel="canonical" href="http://kagari.github.io/note/2020/macos_lualatex/" />
+<link href="http://kagari.github.io/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="http://kagari.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kagari.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kagari.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kagari.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kagari.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<meta property="og:title" content="LuaLatexことはじめ" />
+<meta property="og:description" content="LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。
+LuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。
+MacTexのinstall MacTexをbrewで入れる。
+$ brew install mactex-no-gui ... Password: installer: Package name is MacTeX installer: choices changes file &#39;/var/folders/zy/....xml&#39; applied installer: Installing at base path / installer: The install was successful. 🍺 mactex-no-gui was successfully installed! # shellを再起動する $ exec $SHELL -l # LuaLatexが入っているか確認 $ which lualatex /Library/TeX/texbin/lualatex 適当にtexファイルを書く。
+% main.tex \documentclass{ltjsarticle} \usepackage{luatexja} \begin{document} \section{hoge} hogehoge, fugafuga. \subsection{fuga} fugafuga, hogehoge. hogefuga. \LaTeX \end{document} コンパイル。
+$ lualatex main.tex # 確認 $ ls main." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kagari.github.io/note/2020/macos_lualatex/" />
+<meta property="article:published_time" content="2020-12-26T02:13:25+09:00" />
+<meta property="article:modified_time" content="2020-12-26T02:13:25+09:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LuaLatexことはじめ"/>
+<meta name="twitter:description" content="LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。
+LuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。
+MacTexのinstall MacTexをbrewで入れる。
+$ brew install mactex-no-gui ... Password: installer: Package name is MacTeX installer: choices changes file &#39;/var/folders/zy/....xml&#39; applied installer: Installing at base path / installer: The install was successful. 🍺 mactex-no-gui was successfully installed! # shellを再起動する $ exec $SHELL -l # LuaLatexが入っているか確認 $ which lualatex /Library/TeX/texbin/lualatex 適当にtexファイルを書く。
+% main.tex \documentclass{ltjsarticle} \usepackage{luatexja} \begin{document} \section{hoge} hogehoge, fugafuga. \subsection{fuga} fugafuga, hogehoge. hogefuga. \LaTeX \end{document} コンパイル。
+$ lualatex main.tex # 確認 $ ls main."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LuaLatexことはじめ",
+  "name": "LuaLatexことはじめ",
+  "description": "LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。\nLuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。\nMacTexのinstall MacTexをbrewで入れる。\n$ brew install mactex-no-gui ... Password: installer: …",
+  "keywords": [
+    
+  ],
+  "articleBody": "LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。\nLuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。\nMacTexのinstall MacTexをbrewで入れる。\n$ brew install mactex-no-gui ... Password: installer: Package name is MacTeX installer: choices changes file '/var/folders/zy/....xml' applied installer: Installing at base path / installer: The install was successful. 🍺 mactex-no-gui was successfully installed! # shellを再起動する $ exec $SHELL -l # LuaLatexが入っているか確認 $ which lualatex /Library/TeX/texbin/lualatex 適当にtexファイルを書く。\n% main.tex \\documentclass{ltjsarticle} \\usepackage{luatexja} \\begin{document} \\section{hoge} hogehoge, fugafuga. \\subsection{fuga} fugafuga, hogehoge. hogefuga. \\LaTeX \\end{document} コンパイル。\n$ lualatex main.tex # 確認 $ ls main.aux main.log main.pdf main.tex ちゃんとコンパイルされてpdfファイルが作成されていることが確認できた。\nここまでできればあとは煮るなり焼くなり好きにすればいい。\nおまけ（EmacsでLatex LSPを使ったLuaLatexの自動コンパイル） あまり需要ないと思うけど、一応TexLab (LatexのLanguage Server)を使ってemacsでtexファイルを保存した際に自動でコンパイルしてくれるように設定する。\n~/.emacs.d/init.elファイルに以下の設定を追加（パッケージマネージャーはstraight.elを使用）。\n(use-package lsp-mode :straight t :config (use-package lsp-latex :straight t) (use-package tex-mode :straight t :init (add-hook 'tex-mode-hook 'lsp) (add-hook 'latex-mode-hook 'lsp)) (use-package bibtex :straight t :init (add-hook 'bibtex-mode-hook 'lsp)) (setq lsp-latex-build-executable \"lualatex\") (setq lsp-latex-build-args '(\"%f\")) (setq lsp-latex-build-on-save t)) bibtexの設定はまだ使ってないのでなんとも言えないけど、これでC-x C-sで保存するだけでコンパイルされるようになった。\n試しに、セクションごとにファイル分割してmain.texからsection1.texを呼び出してみたけど、正しくmain.texがコンパイルされる。すごく便利。\n参考文献  LuaTeX が実はそんなに遅くないかも知れない件 [備忘録]Homebrewを使ってmacOS CatalinaにMacTeX-2020をインストール https://github.com/latex-lsp/texlab https://github.com/ROCKTAKEY/lsp-latex  ",
+  "wordCount" : "131",
+  "inLanguage": "en",
+  "datePublished": "2020-12-26T02:13:25+09:00",
+  "dateModified": "2020-12-26T02:13:25+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kagari.github.io/note/2020/macos_lualatex/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "kagari",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kagari.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kagari.github.io/" accesskey="h" title="kagari (Alt + H)">kagari</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()"></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      LuaLatexことはじめ
+    </h1>
+    <div class="post-meta">December 26, 2020
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><del>LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。</del><br>
+LuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。</p>
+<h2 id="mactexのinstall">MacTexのinstall<a hidden class="anchor" aria-hidden="true" href="#mactexのinstall">#</a></h2>
+<p>MacTexをbrewで入れる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install mactex-no-gui
+...
+Password:
+installer: Package name is MacTeX
+installer: choices changes file <span style="color:#e6db74">&#39;/var/folders/zy/....xml&#39;</span> applied
+installer: Installing at base path /
+installer: The install was successful.
+🍺  mactex-no-gui was successfully installed!
+
+<span style="color:#75715e"># shellを再起動する</span>
+$ exec $SHELL -l
+
+<span style="color:#75715e"># LuaLatexが入っているか確認</span>
+$ which lualatex
+/Library/TeX/texbin/lualatex
+</code></pre></div><p>適当にtexファイルを書く。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="color:#75715e">% main.tex
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\documentclass</span>{ltjsarticle}
+<span style="color:#66d9ef">\usepackage</span>{luatexja}
+
+<span style="color:#66d9ef">\begin</span>{document}
+<span style="color:#66d9ef">\section</span>{hoge}
+hogehoge, fugafuga.
+<span style="color:#66d9ef">\subsection</span>{fuga}
+fugafuga, hogehoge.
+hogefuga.
+<span style="color:#66d9ef">\LaTeX</span>
+<span style="color:#66d9ef">\end</span>{document}
+</code></pre></div><p>コンパイル。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ lualatex main.tex
+
+<span style="color:#75715e"># 確認</span>
+$ ls
+main.aux  main.log  main.pdf  main.tex
+</code></pre></div><p>ちゃんとコンパイルされてpdfファイルが作成されていることが確認できた。<br>
+ここまでできればあとは煮るなり焼くなり好きにすればいい。</p>
+<h2 id="おまけemacsでlatex-lspを使ったlualatexの自動コンパイル">おまけ（EmacsでLatex LSPを使ったLuaLatexの自動コンパイル）<a hidden class="anchor" aria-hidden="true" href="#おまけemacsでlatex-lspを使ったlualatexの自動コンパイル">#</a></h2>
+<p>あまり需要ないと思うけど、一応<a href="https://github.com/latex-lsp/texlab">TexLab</a> (LatexのLanguage Server)を使ってemacsでtexファイルを保存した際に自動でコンパイルしてくれるように設定する。</p>
+<p><code>~/.emacs.d/init.el</code>ファイルに以下の設定を追加（パッケージマネージャーは<a href="https://github.com/raxod502/straight.el">straight.el</a>を使用）。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(use-package lsp-mode
+  :straight <span style="color:#66d9ef">t</span>
+  :config
+  (use-package lsp-latex
+    :straight <span style="color:#66d9ef">t</span>)
+  (use-package tex-mode
+    :straight <span style="color:#66d9ef">t</span>
+    :init
+    (add-hook <span style="color:#e6db74">&#39;tex-mode-hook</span> <span style="color:#e6db74">&#39;lsp</span>)
+    (add-hook <span style="color:#e6db74">&#39;latex-mode-hook</span> <span style="color:#e6db74">&#39;lsp</span>))
+  (use-package bibtex
+    :straight <span style="color:#66d9ef">t</span>
+    :init
+    (add-hook <span style="color:#e6db74">&#39;bibtex-mode-hook</span> <span style="color:#e6db74">&#39;lsp</span>))
+  (setq lsp-latex-build-executable <span style="color:#e6db74">&#34;lualatex&#34;</span>)
+  (setq lsp-latex-build-args <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;%f&#34;</span>))
+  (setq lsp-latex-build-on-save <span style="color:#66d9ef">t</span>))
+</code></pre></div><p>bibtexの設定はまだ使ってないのでなんとも言えないけど、これで<code>C-x C-s</code>で保存するだけでコンパイルされるようになった。<br>
+試しに、セクションごとにファイル分割してmain.texからsection1.texを呼び出してみたけど、正しくmain.texがコンパイルされる。すごく便利。</p>
+<h2 id="参考文献">参考文献<a hidden class="anchor" aria-hidden="true" href="#参考文献">#</a></h2>
+<ul>
+<li><a href="https://zrbabbler.hatenablog.com/entry/20170730/1501402087">LuaTeX が実はそんなに遅くないかも知れない件</a></li>
+<li><a href="https://qiita.com/walking_with_models/items/0f2ba9e2c359e95c032c">[備忘録]Homebrewを使ってmacOS CatalinaにMacTeX-2020をインストール</a></li>
+<li><a href="https://github.com/latex-lsp/texlab">https://github.com/latex-lsp/texlab</a></li>
+<li><a href="https://github.com/ROCKTAKEY/lsp-latex">https://github.com/ROCKTAKEY/lsp-latex</a></li>
+</ul>
+
+</div>
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="http://kagari.github.io/">kagari</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="http://kagari.github.io/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
