@@ -1,83 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>//kagari.github.io/</loc>
-    <lastmod>2020-12-26T02:13:25+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-12-08T22:25:07+09:00</lastmod>
+  </url><url>
+    <loc>//kagari.github.io/note/</loc>
+    <lastmod>2021-12-08T22:25:07+09:00</lastmod>
+  </url><url>
+    <loc>//kagari.github.io/note/2021/tea/</loc>
+    <lastmod>2021-12-08T22:25:07+09:00</lastmod>
+  </url><url>
     <loc>//kagari.github.io/note/2020/macos_lualatex/</loc>
     <lastmod>2020-12-26T02:13:25+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//kagari.github.io/note/</loc>
-    <lastmod>2020-12-26T02:13:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</loc>
     <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/2020/alacritty_and_tmux/</loc>
     <lastmod>2020-12-18T09:20:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/2020/macos_pygame_midi/</loc>
     <lastmod>2020-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/2020/nlp100/</loc>
     <lastmod>2020-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/2019/enpit/</loc>
     <lastmod>2019-12-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/2019/docker_rust/</loc>
     <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/install_hyper/</loc>
     <lastmod>2019-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/2018/adventcalender2018/</loc>
     <lastmod>2018-12-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/error/opencv4_for_cpp/</loc>
     <lastmod>2018-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/error/</loc>
     <lastmod>2018-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/note/install_octave/</loc>
     <lastmod>2018-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//kagari.github.io/tags/</loc>
   </url>
-  
 </urlset>

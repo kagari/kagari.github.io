@@ -22,7 +22,7 @@ Docker上のpythonでMIDIファイルを再生する python:latest（2020/05/26�
 apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev apt-get install -y libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev これでpygameをinstallする事ができる。">
 <meta name="author" content="">
 <link rel="canonical" href="//kagari.github.io/note/2020/macos_pygame_midi/" />
-<link href="//kagari.github.io/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+<link href="//kagari.github.io/assets/css/stylesheet.min.521ef667ad8ddd035b65438a1d85fd5707173fefe338d23bc2544d116fa47efb.css" integrity="sha256-Uh72Z62N3QNbZUOKHYX9VwcXP&#43;/jONI7wlRNEW&#43;kfvs=" rel="preload stylesheet"
     as="style">
 
 <link rel="icon" href="//kagari.github.io/favicon.ico">
@@ -32,7 +32,7 @@ apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf
 <link rel="mask-icon" href="//kagari.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.79.0" />
+<meta name="generator" content="Hugo 0.89.4" />
 
 
 <meta property="og:title" content="MIDI用の信号をMacOSで扱えるようにする" />
@@ -181,9 +181,9 @@ apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf
 <p>これで、GarageBandで新規Projectを作成したら、pythonで作成した信号を聞く事ができるようになる。</p>
 <h1 id="pythonからmidi用の信号を作成し音を再生する">pythonからMIDI用の信号を作成し、音を再生する<a hidden class="anchor" aria-hidden="true" href="#pythonからmidi用の信号を作成し音を再生する">#</a></h1>
 <p>まずはpygameをinstallする。</p>
-<pre><code>$ python3 -m pip install pygame
+<pre tabindex="0"><code>$ python3 -m pip install pygame
 </code></pre><p>次に、下のようにpythonファイルを作成する。</p>
-<pre><code>import pygame.midi
+<pre tabindex="0"><code>import pygame.midi
 import time
 
 pygame.midi.init()
@@ -200,30 +200,30 @@ garagebandを使って再生するとgarageband側で設定した音でしか聞
 <h1 id="docker上のpythonでmidiファイルを再生する">Docker上のpythonでMIDIファイルを再生する<a hidden class="anchor" aria-hidden="true" href="#docker上のpythonでmidiファイルを再生する">#</a></h1>
 <p>python:latest（2020/05/26現在ではpython3.8.2）のdocker image上で再生してみる。
 まず、pygameを入れる必要があるが、そのために以下のものをapt-getでインストールしないといけない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 apt-get install -y libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 </code></pre></div><p>これでpygameをinstallする事ができる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -m pip install pygame
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -m pip install pygame
 </code></pre></div><p>次に、docker上で再生した音はそのままでは聴けないので、ホスト側に渡す必要がある。
 調べてみると<a href="https://www.freedesktop.org/wiki/Software/PulseAudio/">pulseaudio</a>というものを使ってtcp経由でホストに送れるらしい。</p>
 <ul>
 <li><a href="https://devops.datenkollektiv.de/running-a-docker-soundbox-on-mac.html">Running a Docker Soundbox on Mac</a></li>
 </ul>
 <p>まず、mac（ホスト）側にpulseaudioをインストールして、デーモンを立てる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install pulseaudio
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install pulseaudio
 <span style="color:#75715e"># デーモンをスタート</span>
 $ pulseaudio --load<span style="color:#f92672">=</span>module-native-protocol-tcp --exit-idle-time<span style="color:#f92672">=</span>-1 --daemon
 <span style="color:#75715e"># 確認</span>
 pulseaudio --check -v
 </code></pre></div><p>デーモンは下のコマンドでも立てられるらしい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew services start pulseaudio
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew services start pulseaudio
 </code></pre></div><p>次に、dockerコンテナからpulseaudioに接続する。下のコマンドでdockerコンテナを起動し、コンテナ内にpulseaudioをインストール。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker run -it -e PULSE_SERVER<span style="color:#f92672">=</span>docker.for.mac.localhost -v ~/.config/pulse:/root/.config/pulse <span style="color:#f92672">[</span>image<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker run -it -e PULSE_SERVER<span style="color:#f92672">=</span>docker.for.mac.localhost -v ~/.config/pulse:/root/.config/pulse <span style="color:#f92672">[</span>image<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
 <span style="color:#75715e"># in container</span>
 apt-get install -y pulseaudio
 </code></pre></div><p>後は適当に音を出すプログラムを走らせるとホスト側で聞こえるようになる。
 ただ、上で書いたサンプルコードを実行しても以下のようなエラーが出て実行できないため、MIDIファイルを作成して再生する必要がある。</p>
-<pre><code>ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+<pre tabindex="0"><code>ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
 Traceback (most recent call last):
   File &quot;sample_midi.py&quot;, line 5, in &lt;module&gt;
     player = pygame.midi.Output(1)
@@ -233,7 +233,7 @@ pygame.midi.MidiException: 'Device id invalid, out of range.'
 </code></pre><h2 id="サンプルmidiファイルを再生する">サンプルMIDIファイルを再生する<a hidden class="anchor" aria-hidden="true" href="#サンプルmidiファイルを再生する">#</a></h2>
 <p><a href="https://windy-vis.com/art/download/midi_files.html">音楽の素材屋さん</a>からMIDIファイルをダウンロードする事ができる。<br>
 試しに、モーツアルトで検索して一番上にきた曲<a href="http://windy-vis.com/art/download/mb/KV136_2MB.mid">KV136 第二楽章（オルゴール）</a>をダウンロードして再生する。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pygame.mixer
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pygame.mixer
 <span style="color:#f92672">import</span> time
 
 pygame<span style="color:#f92672">.</span>mixer<span style="color:#f92672">.</span>init()
@@ -245,7 +245,7 @@ time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">15</sp
 pygame<span style="color:#f92672">.</span>mixer<span style="color:#f92672">.</span>music<span style="color:#f92672">.</span>pause()
 </code></pre></div><p>Audio MIDI SetupとGarageBandがちゃんと設定されていれば、これで音楽が聞こえるはず。</p>
 <h1 id="未解決のerror">未解決のError<a hidden class="anchor" aria-hidden="true" href="#未解決のerror">#</a></h1>
-<pre><code>ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+<pre tabindex="0"><code>ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
 Traceback (most recent call last):
   File &quot;sample_midi.py&quot;, line 5, in &lt;module&gt;
     player = pygame.midi.Output(1)
@@ -254,7 +254,7 @@ Traceback (most recent call last):
 pygame.midi.MidiException: 'Device id invalid, out of range.'
 </code></pre><p>まずは上のエラー。docker上で<code>pygame.midi</code>で直接MIDIの信号を送ろうとすると、<code>/dev/snd/seq</code>がないと言われDeviceのポートが存在しない状態になる。<br>
 StackOverFlowなどでいろいろ探ってみたが解決法が探しきれなかった&hellip;</p>
-<pre><code>fluidsynth: error: Unable to open file &quot;/usr/share/sounds/sf2/TimGM6mb.sf2&quot;
+<pre tabindex="0"><code>fluidsynth: error: Unable to open file &quot;/usr/share/sounds/sf2/TimGM6mb.sf2&quot;
 fluidsynth: error: Couldn't load soundfont file
 fluidsynth: error: Failed to load SoundFont &quot;/usr/share/sounds/sf2/TimGM6mb.sf2&quot;
 fluidsynth: warning: Failed to pin the sample data to RAM; swapping is possible.
@@ -266,7 +266,7 @@ fluidsynth: warning: Failed to pin the sample data to RAM; swapping is possible.
   </footer>
 </article>
     </main><footer class="footer">
-    <span>&copy; 2020 <a href="//kagari.github.io">kagari</a></span>
+    <span>&copy; 2021 <a href="//kagari.github.io">kagari</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
@@ -283,7 +283,7 @@ fluidsynth: warning: Failed to pin the sample data to RAM; swapping is possible.
 
 
 
-<script defer src="//kagari.github.io/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+<script defer src="//kagari.github.io/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
