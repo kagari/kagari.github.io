@@ -8,17 +8,19 @@
 <title>Adventcalender | kagari</title>
 
 <meta name="keywords" content="" />
-<meta name="description" content="singularityでjupyter環境を作る 研究でsingularityを使っていたので、それについて少し書きます。
+<meta name="description" content="singularityでjupyterLab環境を作る 研究でsingularityを使っていたので、それについて少し書きます。
 2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。
-why singularity？ 2022年の4月頃、研究でGPT-2を学習させようと思っていました。
+why singularity？ 2022年の4月頃、研究でGPT-2を学習とデータの前処理をしようと思っていました。
 ただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。
+ちなみに、研究室のサーバがコア数14スレッド数28メモリ128GBなのに対して学科サーバがコア数22スレッド数88メモリ512GBなので、前処理用にちょっとくらい適当なコードを書いてもパワーで押し切れてしまう環境です。
 学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。
 singularity &#43; GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。
- Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyter 本題ですが、jupyterをsingularity &#43; GPU環境で動かします。
+ Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyterLab 本題ですが、jupyterLabをsingularity &#43; GPU環境で動かします。
 といってもやることはpipかcondaでinstallするだけで十分です。
 下がそのdefinition fileです。
-umahara からのオススメを受けてmambaを使っています（速くて良い）。
-# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず&hellip;!
+ほとんどDockerfileと同じように書けます。 umahara からのオススメを受けてmambaを使っています（速くて良い）。
+# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…！
+ここで、GPUを使用するためには--nvオプションを付ける必要があります。
 # build $ singularity build -f -s singularity/image singularity/environment.">
 <meta name="author" content="">
 <link rel="canonical" href="//kagari.github.io/note/2022/adventcalender/" />
@@ -36,17 +38,19 @@ umahara からのオススメを受けてmambaを使っています（速くて�
 
 
 <meta property="og:title" content="Adventcalender" />
-<meta property="og:description" content="singularityでjupyter環境を作る 研究でsingularityを使っていたので、それについて少し書きます。
+<meta property="og:description" content="singularityでjupyterLab環境を作る 研究でsingularityを使っていたので、それについて少し書きます。
 2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。
-why singularity？ 2022年の4月頃、研究でGPT-2を学習させようと思っていました。
+why singularity？ 2022年の4月頃、研究でGPT-2を学習とデータの前処理をしようと思っていました。
 ただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。
+ちなみに、研究室のサーバがコア数14スレッド数28メモリ128GBなのに対して学科サーバがコア数22スレッド数88メモリ512GBなので、前処理用にちょっとくらい適当なコードを書いてもパワーで押し切れてしまう環境です。
 学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。
 singularity &#43; GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。
- Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyter 本題ですが、jupyterをsingularity &#43; GPU環境で動かします。
+ Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyterLab 本題ですが、jupyterLabをsingularity &#43; GPU環境で動かします。
 といってもやることはpipかcondaでinstallするだけで十分です。
 下がそのdefinition fileです。
-umahara からのオススメを受けてmambaを使っています（速くて良い）。
-# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず&hellip;!
+ほとんどDockerfileと同じように書けます。 umahara からのオススメを受けてmambaを使っています（速くて良い）。
+# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…！
+ここで、GPUを使用するためには--nvオプションを付ける必要があります。
 # build $ singularity build -f -s singularity/image singularity/environment." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="//kagari.github.io/note/2022/adventcalender/" />
@@ -54,17 +58,19 @@ umahara からのオススメを受けてmambaを使っています（速くて�
 <meta property="article:modified_time" content="2022-12-12T18:12:12+09:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Adventcalender"/>
-<meta name="twitter:description" content="singularityでjupyter環境を作る 研究でsingularityを使っていたので、それについて少し書きます。
+<meta name="twitter:description" content="singularityでjupyterLab環境を作る 研究でsingularityを使っていたので、それについて少し書きます。
 2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。
-why singularity？ 2022年の4月頃、研究でGPT-2を学習させようと思っていました。
+why singularity？ 2022年の4月頃、研究でGPT-2を学習とデータの前処理をしようと思っていました。
 ただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。
+ちなみに、研究室のサーバがコア数14スレッド数28メモリ128GBなのに対して学科サーバがコア数22スレッド数88メモリ512GBなので、前処理用にちょっとくらい適当なコードを書いてもパワーで押し切れてしまう環境です。
 学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。
 singularity &#43; GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。
- Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyter 本題ですが、jupyterをsingularity &#43; GPU環境で動かします。
+ Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyterLab 本題ですが、jupyterLabをsingularity &#43; GPU環境で動かします。
 といってもやることはpipかcondaでinstallするだけで十分です。
 下がそのdefinition fileです。
-umahara からのオススメを受けてmambaを使っています（速くて良い）。
-# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず&hellip;!
+ほとんどDockerfileと同じように書けます。 umahara からのオススメを受けてmambaを使っています（速くて良い）。
+# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…！
+ここで、GPUを使用するためには--nvオプションを付ける必要があります。
 # build $ singularity build -f -s singularity/image singularity/environment."/>
 
 <script type="application/ld+json">
@@ -73,12 +79,12 @@ umahara からのオススメを受けてmambaを使っています（速くて�
   "@type": "BlogPosting",
   "headline": "Adventcalender",
   "name": "Adventcalender",
-  "description": "singularityでjupyter環境を作る 研究でsingularityを使っていたので、それについて少し書きます。\n2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。\nwhy singularity？ 2022年の4月頃、研究でGPT-2を学習させようと思っていました。\nただ、その期間はちょうど研究室にあ …",
+  "description": "singularityでjupyterLab環境を作る 研究でsingularityを使っていたので、それについて少し書きます。\n2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。\nwhy singularity？ 2022年の4月頃、研究でGPT-2を学習とデータの前処理をしようと思っていました。\nただ、その期 …",
   "keywords": [
     
   ],
-  "articleBody": "singularityでjupyter環境を作る 研究でsingularityを使っていたので、それについて少し書きます。\n2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。\nwhy singularity？ 2022年の4月頃、研究でGPT-2を学習させようと思っていました。\nただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。\n学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。\nsingularity + GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。\n Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity + GPU + jupyter 本題ですが、jupyterをsingularity + GPU環境で動かします。\nといってもやることはpipかcondaでinstallするだけで十分です。\n下がそのdefinition fileです。\numahara からのオススメを受けてmambaを使っています（速くて良い）。\n# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…!\n# build $ singularity build -f -s singularity/image singularity/environment.def # jupyter lab $ singularity exec --nv singularity/image jupyter-lab --allow-root --no-browser --port 8888 ちなみに、シェルに入りたい場合は以下のようにすれば良いはずです。\n$ singularity shell --nv singularity/image 最後に 学科サーバの環境がものすごく良いので、もし「もっと多くのメモリが欲しい」「もっとコア数が欲しい」と思っているのであればぜひ使ってみてください！\n締めに学科サーバ上で88並列で処理した際の画像を貼っておきます。\n",
-  "wordCount" : "94",
+  "articleBody": "singularityでjupyterLab環境を作る 研究でsingularityを使っていたので、それについて少し書きます。\n2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。\nwhy singularity？ 2022年の4月頃、研究でGPT-2を学習とデータの前処理をしようと思っていました。\nただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。\nちなみに、研究室のサーバがコア数14スレッド数28メモリ128GBなのに対して学科サーバがコア数22スレッド数88メモリ512GBなので、前処理用にちょっとくらい適当なコードを書いてもパワーで押し切れてしまう環境です。\n学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。\nsingularity + GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。\n Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity + GPU + jupyterLab 本題ですが、jupyterLabをsingularity + GPU環境で動かします。\nといってもやることはpipかcondaでinstallするだけで十分です。\n下がそのdefinition fileです。\nほとんどDockerfileと同じように書けます。 umahara からのオススメを受けてmambaを使っています（速くて良い）。\n# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…！\nここで、GPUを使用するためには--nvオプションを付ける必要があります。\n# build $ singularity build -f -s singularity/image singularity/environment.def # jupyter lab $ singularity exec --nv singularity/image jupyter-lab --allow-root --no-browser --port 8888 ちなみに、シェルに入りたい場合は以下のようにすれば良いはずです。\n$ singularity shell --nv singularity/image 毎回の起動を楽にするために execで毎回 jupyter-lab ... と書くのが大変なので、%runscriptセクションを使って実行したいコマンドを記述すると簡単に起動することができます。\n# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn %runscript jupyter-lab --allow-root --no-browser --port 8888 もう一度buildして…\n実行の際にはこれを打つだけ！\n$ singularity run --nv singularity/image.sif 最後に 学科サーバの環境がものすごく良いので、もし「もっと多くのメモリが欲しい」「もっとコア数が欲しい」と思っているのであればぜひ使ってみてください！\n締めに学科サーバ上で88並列で処理した際の画像を貼っておきます。\n",
+  "wordCount" : "142",
   "inLanguage": "en",
   "datePublished": "2022-12-12T18:12:12+09:00",
   "dateModified": "2022-12-12T18:12:12+09:00",
@@ -168,12 +174,13 @@ umahara からのオススメを受けてmambaを使っています（速くて�
   </header> 
 
   <div class="post-content">
-<h1 id="singularityでjupyter環境を作る">singularityでjupyter環境を作る<a hidden class="anchor" aria-hidden="true" href="#singularityでjupyter環境を作る">#</a></h1>
+<h1 id="singularityでjupyterlab環境を作る">singularityでjupyterLab環境を作る<a hidden class="anchor" aria-hidden="true" href="#singularityでjupyterlab環境を作る">#</a></h1>
 <p>研究でsingularityを使っていたので、それについて少し書きます。<br>
 2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。</p>
 <h2 id="why-singularity">why singularity？<a hidden class="anchor" aria-hidden="true" href="#why-singularity">#</a></h2>
-<p>2022年の4月頃、研究でGPT-2を学習させようと思っていました。<br>
-ただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。</p>
+<p>2022年の4月頃、研究でGPT-2を学習とデータの前処理をしようと思っていました。<br>
+ただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。<br>
+ちなみに、研究室のサーバがコア数14スレッド数28メモリ128GBなのに対して学科サーバがコア数22スレッド数88メモリ512GBなので、前処理用にちょっとくらい適当なコードを書いてもパワーで押し切れてしまう環境です。</p>
 <p>学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。</p>
 <h2 id="singularity--gpu">singularity + GPU<a hidden class="anchor" aria-hidden="true" href="#singularity--gpu">#</a></h2>
 <p>singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。</p>
@@ -182,10 +189,11 @@ umahara からのオススメを受けてmambaを使っています（速くて�
 <li><a href="https://ie.u-ryukyu.ac.jp/syskan/opening-introduction/singularity-slurm.html">SingularityとSlurmの実践例</a></li>
 <li><a href="https://ie.u-ryukyu.ac.jp/tnal/afterhugo/20201219-2/">新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。</a></li>
 </ul>
-<h2 id="singularity--gpu--jupyter">singularity + GPU + jupyter<a hidden class="anchor" aria-hidden="true" href="#singularity--gpu--jupyter">#</a></h2>
-<p>本題ですが、jupyterをsingularity + GPU環境で動かします。<br>
+<h2 id="singularity--gpu--jupyterlab">singularity + GPU + jupyterLab<a hidden class="anchor" aria-hidden="true" href="#singularity--gpu--jupyterlab">#</a></h2>
+<p>本題ですが、jupyterLabをsingularity + GPU環境で動かします。<br>
 といってもやることはpipかcondaでinstallするだけで十分です。</p>
 <p>下がそのdefinition fileです。<br>
+ほとんどDockerfileと同じように書けます。
 umahara からのオススメを受けてmambaを使っています（速くて良い）。</p>
 <pre tabindex="0"><code># singularity/environment.def
 Bootstrap: docker
@@ -196,7 +204,8 @@ From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime
     conda config --remove channels defaults
     conda install mamba
     mamba install -y jupyterlab matplotlib ipywidgets scikit-learn
-</code></pre><p>これをbuildしてexecすれば立ち上がるはず&hellip;!</p>
+</code></pre><p>これをbuildしてexecすれば立ち上がるはず…！<br>
+ここで、GPUを使用するためには<code>--nv</code>オプションを付ける必要があります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console"># build
 $ singularity build -f -s singularity/image singularity/environment.def
 <span style="color:#960050;background-color:#1e0010">
@@ -204,6 +213,23 @@ $ singularity build -f -s singularity/image singularity/environment.def
 $ singularity exec --nv singularity/image jupyter-lab --allow-root --no-browser --port <span style="color:#ae81ff">8888</span>
 </code></pre></div><p>ちなみに、シェルに入りたい場合は以下のようにすれば良いはずです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">$ singularity shell --nv singularity/image
+</code></pre></div><h2 id="毎回の起動を楽にするために">毎回の起動を楽にするために<a hidden class="anchor" aria-hidden="true" href="#毎回の起動を楽にするために">#</a></h2>
+<p>execで毎回 <code>jupyter-lab ...</code> と書くのが大変なので、<code>%runscript</code>セクションを使って実行したいコマンドを記述すると簡単に起動することができます。</p>
+<pre tabindex="0"><code># singularity/environment.def
+Bootstrap: docker
+From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime
+
+%post
+    conda config --add channels conda-forge
+    conda config --remove channels defaults
+    conda install mamba
+    mamba install -y jupyterlab matplotlib ipywidgets scikit-learn
+
+%runscript
+    jupyter-lab --allow-root --no-browser --port 8888
+</code></pre><p>もう一度buildして…<br>
+実行の際にはこれを打つだけ！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">$ singularity run --nv singularity/image.sif
 </code></pre></div><h2 id="最後に">最後に<a hidden class="anchor" aria-hidden="true" href="#最後に">#</a></h2>
 <p>学科サーバの環境がものすごく良いので、もし「もっと多くのメモリが欲しい」「もっとコア数が欲しい」と思っているのであればぜひ使ってみてください！</p>
 <p>締めに学科サーバ上で88並列で処理した際の画像を貼っておきます。</p>
