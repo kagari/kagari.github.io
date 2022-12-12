@@ -29,7 +29,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="//kagari.github.io/" />
-<meta property="og:updated_time" content="2021-12-08T22:25:07+09:00" />
+<meta property="og:updated_time" content="2022-12-12T18:12:12+09:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="kagari"/>
 <meta name="twitter:description" content=""/>
@@ -110,6 +110,31 @@
 
 
 <article class="first-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Adventcalender
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>singularityでjupyter環境を作る 研究でsingularityを使っていたので、それについて少し書きます。
+2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。
+why singularity？ 2022年の4月頃、研究でGPT-2を学習させようと思っていました。
+ただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。
+学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。
+singularity &#43; GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。
+ Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyter 本題ですが、jupyterをsingularity &#43; GPU環境で動かします。
+といってもやることはpipかcondaでinstallするだけで十分です。
+下がそのdefinition fileです。
+うまはら くんからのオススメを受けてmambaを使っています（爆速）。
+# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…!
+# build $ singularity build -f -s singularity/image singularity/environment....</p>
+  </section>
+  <footer class="entry-footer">December 12, 2022
+</footer>
+  <a class="entry-link" aria-label="post link to Adventcalender" href="//kagari.github.io/note/2022/adventcalender/"></a>
+</article>
+<article class="post-entry"> 
 
   <header class="entry-header">
     <h2>
@@ -363,48 +388,6 @@ brew cask install hyper これだけですw
   <footer class="entry-footer">April 1, 2019
 </footer>
   <a class="entry-link" aria-label="post link to hyper (terminal)を使ってみた" href="//kagari.github.io/note/install_hyper/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      RSA暗号方式をpythonで実装してみる
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。
-こんにちは、kagariです！
-私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw
-記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。
-何か至らない点があっても暖かい目で見守ってくださいm(__)m
-RSA暗号方式ってなに？ RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wikiより)
-うん、完全に理解した(多分)
-要するに素数を使った暗号方式だね!
-今回はこれをpythonで実装していく
-アルゴリズム 鍵の生成 まずは公開鍵の生成を行う。
-2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。
-さらに、nとmとが互いに素である数$e$を定める。
-この(e,n)が公開鍵である。
-次に、秘密鍵の生成を行う。
-ed mod ((p-1)(q-1)) = 1となるようなdを見つける。
-このdが秘密鍵である。
-公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。
-暗号化と複合 暗号化 平文(M)を暗号化すると、暗号文(C)は
-C=M^e mod nとなる。
-これで暗号化を行う。
-複合 複合は、暗号文(C)を以下のようにして平文(M)にすることができる。
-M=C^d mod n
-これで複合を行う。
-実際に実装していく 早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。
-が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()
-使用するライブラリはmathだけ!
-import math  とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。
-まずは公開鍵から
-def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e &#43;= 1 return e, n  次に、秘密鍵を生成する関数を用意...</p>
-  </section>
-  <footer class="entry-footer">December 8, 2018
-</footer>
-  <a class="entry-link" aria-label="post link to RSA暗号方式をpythonで実装してみる" href="//kagari.github.io/note/2018/adventcalender2018/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//kagari.github.io/note/2022/adventcalender/</loc>
+    <lastmod>2022-12-12T18:12:12+09:00</lastmod>
+  </url><url>
     <loc>//kagari.github.io/</loc>
-    <lastmod>2021-12-08T22:25:07+09:00</lastmod>
+    <lastmod>2022-12-12T18:12:12+09:00</lastmod>
   </url><url>
     <loc>//kagari.github.io/note/</loc>
-    <lastmod>2021-12-08T22:25:07+09:00</lastmod>
+    <lastmod>2022-12-12T18:12:12+09:00</lastmod>
   </url><url>
     <loc>//kagari.github.io/note/2021/tea/</loc>
     <lastmod>2021-12-08T22:25:07+09:00</lastmod>
