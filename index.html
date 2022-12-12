@@ -126,7 +126,7 @@ singularity &#43; GPU singularityの使い方に関してはsyskan、nal先生�
  Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyter 本題ですが、jupyterをsingularity &#43; GPU環境で動かします。
 といってもやることはpipかcondaでinstallするだけで十分です。
 下がそのdefinition fileです。
-うまはら くんからのオススメを受けてmambaを使っています（爆速）。
+umahara からのオススメを受けてmambaを使っています（速くて良い）。
 # singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…!
 # build $ singularity build -f -s singularity/image singularity/environment....</p>
   </section>
