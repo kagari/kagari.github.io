@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="//kagari.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.91.2" />
+<meta name="generator" content="Hugo 0.121.2">
 <link rel="alternate" type="application/rss&#43;xml" href="//kagari.github.io/index.xml">
 
 
@@ -143,9 +143,9 @@ M=C^d mod n
 実際に実装していく 早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。
 が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()
 使用するライブラリはmathだけ!
-import math  とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。
+import math とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。
 まずは公開鍵から
-def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e &#43;= 1 return e, n  次に、秘密鍵を生成する関数を用意...</p>
+def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e &#43;= 1 return e, n 次に、秘密鍵を生成する関数を用意...</p>
   </section>
   <footer class="entry-footer">December 8, 2018
 </footer>
@@ -164,11 +164,11 @@ def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m 
 macにoctaveのインストール 書き中~
 Mac OS X に GNU Octave をインストールする
 上記のやり方だと、homebrewにhomebrew/scienceというtapは空と言われます。
-$ brew tap homebrew/science Error: homebrew/science was deprecated. This tap is now empty as all its formulae were migrated  素直に公式のページを見るとインストール方法が載っていたので、公式にしたがってインストールを進めます。
+$ brew tap homebrew/science Error: homebrew/science was deprecated. This tap is now empty as all its formulae were migrated 素直に公式のページを見るとインストール方法が載っていたので、公式にしたがってインストールを進めます。
 今回は、homebrewを使ってインストールを行いました。
 環境
- macOS Mojave 10.14.2 homebrew 2.0.1  インストール手順
-$ brew tap octave-app/octave-app $ brew cask install octave-app  以上。
+macOS Mojave 10.14.2 homebrew 2.0.1 インストール手順
+$ brew tap octave-app/octave-app $ brew cask install octave-app 以上。
 ただ、GUIのOctaveを使ってみると、日本語が文字化けしており、未だ解決できていません…
 フォント変えたりしたけど解決策がわからない。
 解決できたら追記する予定です。...</p>
@@ -184,7 +184,7 @@ $ brew tap octave-app/octave-app $ brew cask install octave-app  以上。
 </footer>
 
     </main><footer class="footer">
-    <span>&copy; 2022 <a href="//kagari.github.io">kagari</a></span>
+    <span>&copy; 2024 <a href="//kagari.github.io">kagari</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>

@@ -6,297 +6,91 @@
     <description>Recent content in Notes on kagari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Mon, 12 Dec 2022 18:12:12 +0900</lastBuildDate><atom:link href="//kagari.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Dec 2022 18:12:12 +0900</lastBuildDate>
+    <atom:link href="//kagari.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adventcalender</title>
       <link>//kagari.github.io/note/2022/adventcalender/</link>
       <pubDate>Mon, 12 Dec 2022 18:12:12 +0900</pubDate>
-      
       <guid>//kagari.github.io/note/2022/adventcalender/</guid>
-      <description>これは琉大アドベントカレンダー12日目の記事です。
-singularityでjupyterLab環境を作る 研究でsingularityを使っていたので、それについて少し書きます。
-2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。
-why singularity？ 2022年の4月頃、研究でGPT-2を学習とデータの前処理をしようと思っていました。
-ただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。
-ちなみに、研究室のサーバがコア数14スレッド数28メモリ128GBなのに対して学科サーバがコア数22スレッド数88メモリ512GBなので、前処理用にちょっとくらい適当なコードを書いてもパワーで押し切れてしまう環境です。
-学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。
-singularity + GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。
- Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity + GPU + jupyterLab 本題ですが、jupyterLabをsingularity + GPU環境で動かします。
-といってもやることはpipかcondaでinstallするだけで十分です。
-下がそのdefinition fileです。
-ほとんどDockerfileと同じように書けます。 umahara からのオススメを受けてmambaを使っています（速くて良い）。
-# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…！
-ここで、GPUを使用するためには--nvオプションを付ける必要があります。
-# build $ singularity build -f -s singularity/image singularity/environment.</description>
+      <description>これは琉大アドベントカレンダー12日目の記事です。&#xA;singularityでjupyterLab環境を作る 研究でsingularityを使っていたので、それについて少し書きます。&#xA;2022年9月頃まで動かしていた環境なので、今は動かない可能性がありますが参考になれば幸いです。&#xA;why singularity？ 2022年の4月頃、研究でGPT-2を学習とデータの前処理をしようと思っていました。&#xA;ただ、その期間はちょうど研究室にあるGPUサーバを色んな人が使っていて空きがなかったため、学科サーバで学習させることに。&#xA;ちなみに、研究室のサーバがコア数14スレッド数28メモリ128GBなのに対して学科サーバがコア数22スレッド数88メモリ512GBなので、前処理用にちょっとくらい適当なコードを書いてもパワーで押し切れてしまう環境です。&#xA;学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。&#xA;singularity + GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。&#xA;Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。 singularity + GPU + jupyterLab 本題ですが、jupyterLabをsingularity + GPU環境で動かします。&#xA;といってもやることはpipかcondaでinstallするだけで十分です。&#xA;下がそのdefinition fileです。&#xA;ほとんどDockerfileと同じように書けます。 umahara からのオススメを受けてmambaを使っています（速くて良い）。&#xA;# singularity/environment.def Bootstrap: docker From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime %post conda config --add channels conda-forge conda config --remove channels defaults conda install mamba mamba install -y jupyterlab matplotlib ipywidgets scikit-learn これをbuildしてexecすれば立ち上がるはず…！&#xA;ここで、GPUを使用するためには--nvオプションを付ける必要があります。&#xA;# build $ singularity build -f -s singularity/image singularity/environment.</description>
     </item>
-    
     <item>
       <title>趣味のお茶の話</title>
       <link>//kagari.github.io/note/2021/tea/</link>
       <pubDate>Wed, 08 Dec 2021 22:25:07 +0900</pubDate>
-      
       <guid>//kagari.github.io/note/2021/tea/</guid>
-      <description>ここ最近はお茶を飲み続けているので感想を書き出してみる。
-2ヶ月以上前のものとかほとんど忘れているけど覚えている範囲で。
-あと書いてあるものは全てルピシアのもの。
-ルピシア以外ではカレルチャペックのものを買ってみたけど、全てサイダー出しにしてしまったので今回は見送り。
-サクランボ サクランボフレーバーの紅茶。
-安定の美味しさ。
-雑に入れても美味しい。
-あまり重くないのでいつでも飲める。
-迷ったらサクランボでいいくらい。
-知覧 ゆたかみどり 安定の緑茶。
-美味しい。
-時々、温度をミスったせいか変な香りになったりしたけど、ちゃんと淹れれば美味しい。
-いつでも飲める美味しさ。
-頴娃 あさつゆ ゆたかみどりと同じ鹿児島産の緑茶。
-こっちも美味しい。
-ゆたかみどりと飲み比べた感じこっちのほうが緑茶っぽさがあってよかった。
-まぁ、どっちも美味しいので優劣がつけられない。
-こっちもいつでも飲める美味しさ。
-ナツコイ 夏限定かな。
-これ、レモンみたいなすごくいい香りだった。
-香りは強いほうだと思うけど、引き立てる感じで良かった。
-ニルギリ そこまで記憶に残ってない。
-多分普通に美味しかったんだと思う。
-ホワイトサングリア 香りがすごく甘い。
-蟻が寄ってくるんじゃないかってくらい甘い。
-飲んだ感じは普通に紅茶なので香りが好きならいいかも。
-香りが強いので入れるまでに少し気合がいる。
-ロゼ ロワイヤル 普通に甘い。
-ホワイトサングリアと同じ感じ。
-シャンパンがよくわからないので甘いなぁって感じで終わった。
-アッサム&amp;amp;モカ コーヒーと紅茶組み合わせたら最強じゃん！、みたいなノリで作られたんじゃないかと思ってる。
-入れる前はコーヒー豆の香りが良い。
-飲むとなんか違うって感じのものだった。
-ミルクティーにしようと頑張ったけど、味が浮いてしまって良い感じにならなかった。
-栗 栗の香りをつけたフレーバード緑茶。
-香りが重いので飲むのに気合がいる。
-自分は香りが苦手だったのでこれの50g飲むのに1ヶ月半ほどかかった。
-緑茶の旨みを香りで隠しているような感じ。
-ホットならギリ飲める。
-柚子 栗と一緒に買った。
-栗よりも香りが薄く、柚の香りなのであまり緑茶の香りを邪魔していない（ように感じる）。
-柚子茶と緑茶で飲み分けたほうが美味しいと思う。
-ホットもアイスもいける。
-柚子茶 はちみつに柚子ピールが入ってるアレ。
-冬は絶対飲むってくらいゆず茶が好き。
-ルピシアのゆず茶は初めて飲んだけど普通に美味しかった。
-ただ、ドンキに売ってる1kgのやつとの違いがわからなかった&amp;hellip;
-多分はちみつが1kgのやつよりもいい感じだったのかもしれない&amp;hellip;
-順位をつけるなら  サクランボ 知覧 ゆたかみどり / 頴娃 あさつゆ ナツコイ ニルギリ 柚子茶 ロゼ ロワイヤル / ホワイトサングリア 柚子 栗 / モカ&amp;amp;アッサム  感想 15種類くらいあるかなと思ってたけど、思っていたよりも飲んでいなかった。</description>
+      <description>ここ最近はお茶を飲み続けているので感想を書き出してみる。&#xA;2ヶ月以上前のものとかほとんど忘れているけど覚えている範囲で。&#xA;あと書いてあるものは全てルピシアのもの。&#xA;ルピシア以外ではカレルチャペックのものを買ってみたけど、全てサイダー出しにしてしまったので今回は見送り。&#xA;サクランボ サクランボフレーバーの紅茶。&#xA;安定の美味しさ。&#xA;雑に入れても美味しい。&#xA;あまり重くないのでいつでも飲める。&#xA;迷ったらサクランボでいいくらい。&#xA;知覧 ゆたかみどり 安定の緑茶。&#xA;美味しい。&#xA;時々、温度をミスったせいか変な香りになったりしたけど、ちゃんと淹れれば美味しい。&#xA;いつでも飲める美味しさ。&#xA;頴娃 あさつゆ ゆたかみどりと同じ鹿児島産の緑茶。&#xA;こっちも美味しい。&#xA;ゆたかみどりと飲み比べた感じこっちのほうが緑茶っぽさがあってよかった。&#xA;まぁ、どっちも美味しいので優劣がつけられない。&#xA;こっちもいつでも飲める美味しさ。&#xA;ナツコイ 夏限定かな。&#xA;これ、レモンみたいなすごくいい香りだった。&#xA;香りは強いほうだと思うけど、引き立てる感じで良かった。&#xA;ニルギリ そこまで記憶に残ってない。&#xA;多分普通に美味しかったんだと思う。&#xA;ホワイトサングリア 香りがすごく甘い。&#xA;蟻が寄ってくるんじゃないかってくらい甘い。&#xA;飲んだ感じは普通に紅茶なので香りが好きならいいかも。&#xA;香りが強いので入れるまでに少し気合がいる。&#xA;ロゼ ロワイヤル 普通に甘い。&#xA;ホワイトサングリアと同じ感じ。&#xA;シャンパンがよくわからないので甘いなぁって感じで終わった。&#xA;アッサム&amp;amp;モカ コーヒーと紅茶組み合わせたら最強じゃん！、みたいなノリで作られたんじゃないかと思ってる。&#xA;入れる前はコーヒー豆の香りが良い。&#xA;飲むとなんか違うって感じのものだった。&#xA;ミルクティーにしようと頑張ったけど、味が浮いてしまって良い感じにならなかった。&#xA;栗 栗の香りをつけたフレーバード緑茶。&#xA;香りが重いので飲むのに気合がいる。&#xA;自分は香りが苦手だったのでこれの50g飲むのに1ヶ月半ほどかかった。&#xA;緑茶の旨みを香りで隠しているような感じ。&#xA;ホットならギリ飲める。&#xA;柚子 栗と一緒に買った。&#xA;栗よりも香りが薄く、柚の香りなのであまり緑茶の香りを邪魔していない（ように感じる）。&#xA;柚子茶と緑茶で飲み分けたほうが美味しいと思う。&#xA;ホットもアイスもいける。&#xA;柚子茶 はちみつに柚子ピールが入ってるアレ。&#xA;冬は絶対飲むってくらいゆず茶が好き。&#xA;ルピシアのゆず茶は初めて飲んだけど普通に美味しかった。&#xA;ただ、ドンキに売ってる1kgのやつとの違いがわからなかった&amp;hellip;&#xA;多分はちみつが1kgのやつよりもいい感じだったのかもしれない&amp;hellip;&#xA;順位をつけるなら サクランボ 知覧 ゆたかみどり / 頴娃 あさつゆ ナツコイ ニルギリ 柚子茶 ロゼ ロワイヤル / ホワイトサングリア 柚子 栗 / モカ&amp;amp;アッサム 感想 15種類くらいあるかなと思ってたけど、思っていたよりも飲んでいなかった。</description>
     </item>
-    
     <item>
       <title>LuaLatexことはじめ</title>
       <link>//kagari.github.io/note/2020/macos_lualatex/</link>
       <pubDate>Sat, 26 Dec 2020 02:13:25 +0900</pubDate>
-      
       <guid>//kagari.github.io/note/2020/macos_lualatex/</guid>
-      <description>LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。
-LuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。
-MacTexのinstall MacTexをbrewで入れる。
-$ brew install mactex-no-gui ... Password: installer: Package name is MacTeX installer: choices changes file &amp;#39;/var/folders/zy/....xml&amp;#39; applied installer: Installing at base path / installer: The install was successful. 🍺 mactex-no-gui was successfully installed! # shellを再起動する $ exec $SHELL -l # LuaLatexが入っているか確認 $ which lualatex /Library/TeX/texbin/lualatex 適当にtexファイルを書く。
-% main.tex \documentclass{ltjsarticle} \usepackage{luatexja} \begin{document} \section{hoge} hogehoge, fugafuga. \subsection{fuga} fugafuga, hogehoge. hogefuga. \LaTeX \end{document} コンパイル。
-$ lualatex main.tex # 確認 $ ls main.</description>
+      <description>LuaLatex自体はコンパイルが遅いそうなので、LuaJITLatexを入れる。&#xA;LuaLatexが速くなっているようなので、別にLuaJITLatexは入れなくても良さそう。&#xA;MacTexのinstall MacTexをbrewで入れる。&#xA;$ brew install mactex-no-gui ... Password: installer: Package name is MacTeX installer: choices changes file &amp;#39;/var/folders/zy/....xml&amp;#39; applied installer: Installing at base path / installer: The install was successful. 🍺 mactex-no-gui was successfully installed! # shellを再起動する $ exec $SHELL -l # LuaLatexが入っているか確認 $ which lualatex /Library/TeX/texbin/lualatex 適当にtexファイルを書く。&#xA;% main.tex \documentclass{ltjsarticle} \usepackage{luatexja} \begin{document} \section{hoge} hogehoge, fugafuga. \subsection{fuga} fugafuga, hogehoge. hogefuga. \LaTeX \end{document} コンパイル。&#xA;$ lualatex main.tex # 確認 $ ls main.</description>
     </item>
-    
     <item>
       <title>python環境構築</title>
       <link>//kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
       <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>//kagari.github.io/note/python%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
-      <description>pyenv
-python自体のバージョンを管理する pipenv
-ライブラリ・パッケージを管理をする  pyenvのinstall brew install pyenv 設定ファイルに記述。
-以下はfish用の設定なので適宜zshやbashように書き換える必要がある。
-# config.fish if set PIPENV_VENV_IN_PROJECT or command -v pyenv &amp;amp;&amp;gt; /dev/null pyenv init - | source # 仮想環境置き場をプロジェクトディレクトリに含めるようにする set -x PIPENV_VENV_IN_PROJECT 1 end pipenvのinstall pipenvはpipでinstallするため、まずはpyenvでグローバルの仮想環境を作成しておくと良い。
-pyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3.9.0 # installしたversionをglobalに割り当てる pip install pipenv # 確認 which pipenv /usr/local/var/pyenv/shims/pipenv 仮想環境の作成 ここでは test ディレクトリ（プロジェクト）を作成して、その中に仮想環境を作成する。
-# testプロジェクトの作成 mkdir test cd test # pythonのインストール pyenv install 3.10-dev # もしくは以下のようにpipenvを使ってpyenvと同じことができる pipenv --python 3.</description>
+      <description>pyenv&#xA;python自体のバージョンを管理する pipenv&#xA;ライブラリ・パッケージを管理をする pyenvのinstall brew install pyenv 設定ファイルに記述。&#xA;以下はfish用の設定なので適宜zshやbashように書き換える必要がある。&#xA;# config.fish if set PIPENV_VENV_IN_PROJECT or command -v pyenv &amp;amp;&amp;gt; /dev/null pyenv init - | source # 仮想環境置き場をプロジェクトディレクトリに含めるようにする set -x PIPENV_VENV_IN_PROJECT 1 end pipenvのinstall pipenvはpipでinstallするため、まずはpyenvでグローバルの仮想環境を作成しておくと良い。&#xA;pyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3.9.0 # installしたversionをglobalに割り当てる pip install pipenv # 確認 which pipenv /usr/local/var/pyenv/shims/pipenv 仮想環境の作成 ここでは test ディレクトリ（プロジェクト）を作成して、その中に仮想環境を作成する。&#xA;# testプロジェクトの作成 mkdir test cd test # pythonのインストール pyenv install 3.10-dev # もしくは以下のようにpipenvを使ってpyenvと同じことができる pipenv --python 3.</description>
     </item>
-    
     <item>
       <title>AlacrittyでiTerm2のように画面分割を使いたい！</title>
       <link>//kagari.github.io/note/2020/alacritty_and_tmux/</link>
       <pubDate>Fri, 18 Dec 2020 09:20:45 +0900</pubDate>
-      
       <guid>//kagari.github.io/note/2020/alacritty_and_tmux/</guid>
-      <description>これは、琉大 Advent Calendar 2020の17日目の記事です。
-こんにちは、kagariです。
-私はこれまでterminal.appやiTerm2、hyperなどのターミナルエミュレータを使ってきましたが、最近はAlacrittyで作業をしています。
-Alacrittyは爆速なのですが、如何せんそのミニマムな設計から画面分割や新規タブの作成が行えないため不便だと感じやすく、新規参入者を減らしてしまっているような気がします。
-そこで、今回はTmuxと組み合わせてiTerm2風なキーバインドで画面分割や新規タブの作成が行えるようにしたいと思います。
-使用しているもの  Alacritty Tmux zsh  Alacritty Rustで書かれたターミナルエミュレータです。
-最小限な機能で爆速に動作することを目的に作られています。
-そのため、画面分割機能や新規ウィンドウ作成機能はありません。
-でもiTerm2のような縦横の画面分割機能は欲しいので、この記事をほぼ丸パクリ参考にTmuxを使っていい感じに画面分割できるようにします。
-Macユーザーであればhomebrewを使って簡単にインストールすることができます。
-$ brew cask install alacritty 自分でBuildしたい場合はAlacrittyのINSTALLガイドを参考にするといいと思います。
-Tmux Terminal Multiplexerの略で、1つのターミナル上で複数のターミナルを開けるものです。
-ターミナルを終了してもセッションが保持されるので、サーバーとの接続を維持したいときに便利だとは聞きます。
-似たようなモノでscreenというものがあるらしいのですが、使ったことがないのに加え、Alacrittyの記事では大体がTmuxについて書かれていたので今回はTmuxを使います。
-こちらもMacユーザーであればhomebrewを使って簡単にインストールすることができます。
-$ brew install tmux Alacritty + Tmuxの設定 ここからはAlacrittyとTmuxの設定をしていきます。
-まず、Tmuxの設定から行います。
-Tmuxはデフォルトのプレフィックスキーが Ctrl+b になっており、macのショートカットキーやemacsを使用している人には辛いです。
-自分的には Ctrl+q はあまり使っていないのでキーの割り当てを Ctrl+b から Ctrl+q に変更します。
-何かしらのエディタを使って ~/.tmux.conf ファイルを開きましょう（ない場合は作成します）。
-以下の設定を書き込みます。
-# ~/.tmux.conf set -g prefix C-q # Ctrl-qをプレフィックスキーに割り当て unbind C-b # Ctrl-bの割り当てを解除 ひとまずこれで Ctrl+b がtmuxに奪われなくなりました。</description>
+      <description>これは、琉大 Advent Calendar 2020の17日目の記事です。&#xA;こんにちは、kagariです。&#xA;私はこれまでterminal.appやiTerm2、hyperなどのターミナルエミュレータを使ってきましたが、最近はAlacrittyで作業をしています。&#xA;Alacrittyは爆速なのですが、如何せんそのミニマムな設計から画面分割や新規タブの作成が行えないため不便だと感じやすく、新規参入者を減らしてしまっているような気がします。&#xA;そこで、今回はTmuxと組み合わせてiTerm2風なキーバインドで画面分割や新規タブの作成が行えるようにしたいと思います。&#xA;使用しているもの Alacritty Tmux zsh Alacritty Rustで書かれたターミナルエミュレータです。&#xA;最小限な機能で爆速に動作することを目的に作られています。&#xA;そのため、画面分割機能や新規ウィンドウ作成機能はありません。&#xA;でもiTerm2のような縦横の画面分割機能は欲しいので、この記事をほぼ丸パクリ参考にTmuxを使っていい感じに画面分割できるようにします。&#xA;Macユーザーであればhomebrewを使って簡単にインストールすることができます。&#xA;$ brew cask install alacritty 自分でBuildしたい場合はAlacrittyのINSTALLガイドを参考にするといいと思います。&#xA;Tmux Terminal Multiplexerの略で、1つのターミナル上で複数のターミナルを開けるものです。&#xA;ターミナルを終了してもセッションが保持されるので、サーバーとの接続を維持したいときに便利だとは聞きます。&#xA;似たようなモノでscreenというものがあるらしいのですが、使ったことがないのに加え、Alacrittyの記事では大体がTmuxについて書かれていたので今回はTmuxを使います。&#xA;こちらもMacユーザーであればhomebrewを使って簡単にインストールすることができます。&#xA;$ brew install tmux Alacritty + Tmuxの設定 ここからはAlacrittyとTmuxの設定をしていきます。&#xA;まず、Tmuxの設定から行います。&#xA;Tmuxはデフォルトのプレフィックスキーが Ctrl+b になっており、macのショートカットキーやemacsを使用している人には辛いです。&#xA;自分的には Ctrl+q はあまり使っていないのでキーの割り当てを Ctrl+b から Ctrl+q に変更します。&#xA;何かしらのエディタを使って ~/.tmux.conf ファイルを開きましょう（ない場合は作成します）。&#xA;以下の設定を書き込みます。&#xA;# ~/.tmux.conf set -g prefix C-q # Ctrl-qをプレフィックスキーに割り当て unbind C-b # Ctrl-bの割り当てを解除 ひとまずこれで Ctrl+b がtmuxに奪われなくなりました。&#xA;次に、Alacrittyの方の設定を行っていきます。&#xA;Alacrittyには（もちろん）設定用のリッチなUIはなくyamlファイルに設定を書いていきます。</description>
     </item>
-    
     <item>
       <title>MIDI用の信号をMacOSで扱えるようにする</title>
       <link>//kagari.github.io/note/2020/macos_pygame_midi/</link>
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>//kagari.github.io/note/2020/macos_pygame_midi/</guid>
-      <description>参考：Why pygame.midi doesn&amp;rsquo;t work on macos whereas pygame.mixer does
-MIDI用の信号は普通のオーディオのOUTPUTでは使えないため、一度MIDI信号をDTMアプリなどを介してやるようにする必要がある。そのために、MacOSではAudio MIDI Setupという標準で入っているアプリを使用してDTMアプリに信号を渡してやるようにする。
-まず、Audio MIDI Setupアプリを起動して、Window→Show MIDI Studioを選択。
-次に、MIDI Studioの中のIAC Driverというものをダブルクリックして開く。
-次にDevice is Onlineにチェックを入れる事で、MIDI信号をGarageBandなどのDTMアプリに自動で入力してくれるようになる。
-ちなみに、GarageBandを立ち上げている状態でこのDevice is onlineにチェックを入れると、下のような通知がくる。
-これで、GarageBandで新規Projectを作成したら、pythonで作成した信号を聞く事ができるようになる。
-pythonからMIDI用の信号を作成し、音を再生する まずはpygameをinstallする。
-$ python3 -m pip install pygame 次に、下のようにpythonファイルを作成する。
-import pygame.midi import time pygame.midi.init() player = pygame.midi.Output(1) player.set_instrument(0) player.note_on(64, 127) time.sleep(1) player.note_off(64, 127) del player pygame.midi.quit() これを実行するとGarageBand経由で音が聞こえるはず。 player.set_instruments(0)で楽器を選択しており、General_MIDI(wiki)では128（pythonのindexでは127）まであるらしい。 garagebandを使って再生するとgarageband側で設定した音でしか聞こえなかった。
-Docker上のpythonでMIDIファイルを再生する python:latest（2020/05/26現在ではpython3.8.2）のdocker image上で再生してみる。 まず、pygameを入れる必要があるが、そのために以下のものをapt-getでインストールしないといけない。
-apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev apt-get install -y libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev これでpygameをinstallする事ができる。</description>
+      <description>参考：Why pygame.midi doesn&amp;rsquo;t work on macos whereas pygame.mixer does&#xA;MIDI用の信号は普通のオーディオのOUTPUTでは使えないため、一度MIDI信号をDTMアプリなどを介してやるようにする必要がある。そのために、MacOSではAudio MIDI Setupという標準で入っているアプリを使用してDTMアプリに信号を渡してやるようにする。&#xA;まず、Audio MIDI Setupアプリを起動して、Window→Show MIDI Studioを選択。&#xA;次に、MIDI Studioの中のIAC Driverというものをダブルクリックして開く。&#xA;次にDevice is Onlineにチェックを入れる事で、MIDI信号をGarageBandなどのDTMアプリに自動で入力してくれるようになる。&#xA;ちなみに、GarageBandを立ち上げている状態でこのDevice is onlineにチェックを入れると、下のような通知がくる。&#xA;これで、GarageBandで新規Projectを作成したら、pythonで作成した信号を聞く事ができるようになる。&#xA;pythonからMIDI用の信号を作成し、音を再生する まずはpygameをinstallする。&#xA;$ python3 -m pip install pygame 次に、下のようにpythonファイルを作成する。&#xA;import pygame.midi import time pygame.midi.init() player = pygame.midi.Output(1) player.set_instrument(0) player.note_on(64, 127) time.sleep(1) player.note_off(64, 127) del player pygame.midi.quit() これを実行するとGarageBand経由で音が聞こえるはず。 player.set_instruments(0)で楽器を選択しており、General_MIDI(wiki)では128（pythonのindexでは127）まであるらしい。 garagebandを使って再生するとgarageband側で設定した音でしか聞こえなかった。&#xA;Docker上のpythonでMIDIファイルを再生する python:latest（2020/05/26現在ではpython3.8.2）のdocker image上で再生してみる。 まず、pygameを入れる必要があるが、そのために以下のものをapt-getでインストールしないといけない。&#xA;apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev apt-get install -y libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev これでpygameをinstallする事ができる。</description>
     </item>
-    
     <item>
       <title>NLP100本ノック</title>
       <link>//kagari.github.io/note/2020/nlp100/</link>
       <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
-      
       <guid>//kagari.github.io/note/2020/nlp100/</guid>
-      <description>ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。
-章が終わるたびに載せていきたいと思います。
-目次  第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章  第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
-逆順などはreversed()を使って、あとは文字列をリストと見立ててゴチャゴチャ操作する感じで書いていきました。
-途中split()でのデフォルトで文字単位で区切ってくれると勘違いしていて少し引っ掛かったりしました&amp;hellip;
-問題04で条件が分岐するindexが不規則だったのが気になったけど、辞書のキーが衝突しないように決めたのかなとも思ったり。
-n-gramに関してはデータマイニングの授業でも触ったのである程度知っていたのですが、それでも久々にやると結構忘れているものですね&amp;hellip; n-gramの実装中に気になったこととしては、区切る単位（単語か文字か）によって返すリストの形式が変わってしまうところでした。 単語で区切るとList(List(str))なのに対して文字で区切るとList(str)なのは少し気になる&amp;hellip; 調べた感じだと他の人もそんな感じだったので「良いかな」と割り切って進めていきました。
-集合の問題も結構面白かったです。普段あまりsetを使わないので、setの演算が練習できたのは勉強になりました。かなり直感的に和集合や差集合などを表せることを知ったので、機会があれば使ってみたいと思います。
-問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。 今回はreturnを使わずにyieldを使ってみましたが、for内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。
-cipherは下のように実装しました。
-def cipher(string: str): for s in string: if s.islower(): yield chr(219 - ord(s)) else: yield s &amp;#34;&amp;#34;.join((cipher(&amp;#34;hoge is fuga.&amp;#34;))) typoglycemiaは下のような感じになりました。
-def typoglycemia(string: str): for s in string.split(&amp;#34; &amp;#34;): if len(s) &amp;gt; 4: yield s[0] + &amp;#34;&amp;#34;.join(random.sample(s[1:-1], len(s)-2)) + s[-1] else: yield s &amp;#34; &amp;#34;.</description>
+      <description>ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。&#xA;章が終わるたびに載せていきたいと思います。&#xA;目次 第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。&#xA;逆順などはreversed()を使って、あとは文字列をリストと見立ててゴチャゴチャ操作する感じで書いていきました。&#xA;途中split()でのデフォルトで文字単位で区切ってくれると勘違いしていて少し引っ掛かったりしました&amp;hellip;&#xA;問題04で条件が分岐するindexが不規則だったのが気になったけど、辞書のキーが衝突しないように決めたのかなとも思ったり。&#xA;n-gramに関してはデータマイニングの授業でも触ったのである程度知っていたのですが、それでも久々にやると結構忘れているものですね&amp;hellip; n-gramの実装中に気になったこととしては、区切る単位（単語か文字か）によって返すリストの形式が変わってしまうところでした。 単語で区切るとList(List(str))なのに対して文字で区切るとList(str)なのは少し気になる&amp;hellip; 調べた感じだと他の人もそんな感じだったので「良いかな」と割り切って進めていきました。&#xA;集合の問題も結構面白かったです。普段あまりsetを使わないので、setの演算が練習できたのは勉強になりました。かなり直感的に和集合や差集合などを表せることを知ったので、機会があれば使ってみたいと思います。&#xA;問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。 今回はreturnを使わずにyieldを使ってみましたが、for内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。&#xA;cipherは下のように実装しました。&#xA;def cipher(string: str): for s in string: if s.islower(): yield chr(219 - ord(s)) else: yield s &amp;#34;&amp;#34;.join((cipher(&amp;#34;hoge is fuga.&amp;#34;))) typoglycemiaは下のような感じになりました。&#xA;def typoglycemia(string: str): for s in string.split(&amp;#34; &amp;#34;): if len(s) &amp;gt; 4: yield s[0] + &amp;#34;&amp;#34;.join(random.sample(s[1:-1], len(s)-2)) + s[-1] else: yield s &amp;#34; &amp;#34;.join(typoglycemia(&amp;#34;Alice, a seven-year-old girl, is feeling.</description>
     </item>
-    
     <item>
       <title>enPiT振り返り</title>
       <link>//kagari.github.io/note/2019/enpit/</link>
       <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>//kagari.github.io/note/2019/enpit/</guid>
-      <description>enPiT2019が終わったので、ちょっと記憶が霞む前に振り返りを。
-目次  enPiTの受講動機 enPiTの流れ enPiTの効果 自分の振り返り 最後に  enPiTの受講動機 受講しようと思った理由としては、ソフトウェア演習の授業でチーム開発をやってて「もう少し上手くできたなぁ」と思ってたので、力試し &amp;amp; チーム開発周りの力を身につけるために参加しました。
-まぁ、決定打は先輩が「やった方がいいよ！！」と言ってたからですね、はい。 あとは友達が参加するからとかそんな感じ。
-enPiTの流れ ちょっと記憶が曖昧ですが&amp;hellip;
- いつだったか忘れたけどチーム決め  5人1組くらいで学生が勝手に決める チーム内のバランスは結構大事なので慎重に決める必要がある   8月：プロダクトの考え方を学ぶ  産業社会学言論Ⅱという授業でプロダクトを考える方法を学ぶ 実際にプロダクトを作っている方が講師として来てくれる 講義形式のもありますが、大体実際にプロダクトを考えながら学べる   9/1日〜6日：夏合宿  宿に缶詰状態でアジャイル開発を学びます 多分ここが一番楽しい（個人の感想です   10月：開発開始  enPiT期間中は毎週デモがある（Demo or Die プロダクトが変わりまくる時期   11月中旬：中間発表（デモ会  毎週のデモとあまり変わらない   12月：ラストスパート  この辺でチーム毎の士気に差が出る（気がした   12月21日：最終成果発表会  自分達が開発してきたプロダクトを大勢の前で発表する 懇談会ではプレゼント交換会や立食があったり結構祭りっぽい雰囲気    と、まぁこんな感じだった気がする。
-チーム内のバランスについては、自分たちの班はデザイナー4人とプログラマ1人という状態からのスタートだったけど、チームメンバー全員が開発を頑張ったので結局全員がデザイナー兼プログラマという形になってました。
-enPiTの効果 enPiTを受講するメリット・デメリットとしては以下のような感じ。
- メリット  アジャイル開発が学べる チーム開発が学べる 開発のために必要な知識が身に付く アジャイル開発のスペシャリストに直接教えてもらえる！ 就活に有利になる   デメリット  時間が消える    メリットについて メリットがそんなに書けてないが悔しいですが、自分が強く感じたのはこの3つ。最後のは就活してないのでわかりませんが、先輩や先生方が何度も言っていたので一応書きました。</description>
+      <description>enPiT2019が終わったので、ちょっと記憶が霞む前に振り返りを。&#xA;目次 enPiTの受講動機 enPiTの流れ enPiTの効果 自分の振り返り 最後に enPiTの受講動機 受講しようと思った理由としては、ソフトウェア演習の授業でチーム開発をやってて「もう少し上手くできたなぁ」と思ってたので、力試し &amp;amp; チーム開発周りの力を身につけるために参加しました。&#xA;まぁ、決定打は先輩が「やった方がいいよ！！」と言ってたからですね、はい。 あとは友達が参加するからとかそんな感じ。&#xA;enPiTの流れ ちょっと記憶が曖昧ですが&amp;hellip;&#xA;いつだったか忘れたけどチーム決め 5人1組くらいで学生が勝手に決める チーム内のバランスは結構大事なので慎重に決める必要がある 8月：プロダクトの考え方を学ぶ 産業社会学言論Ⅱという授業でプロダクトを考える方法を学ぶ 実際にプロダクトを作っている方が講師として来てくれる 講義形式のもありますが、大体実際にプロダクトを考えながら学べる 9/1日〜6日：夏合宿 宿に缶詰状態でアジャイル開発を学びます 多分ここが一番楽しい（個人の感想です 10月：開発開始 enPiT期間中は毎週デモがある（Demo or Die プロダクトが変わりまくる時期 11月中旬：中間発表（デモ会 毎週のデモとあまり変わらない 12月：ラストスパート この辺でチーム毎の士気に差が出る（気がした 12月21日：最終成果発表会 自分達が開発してきたプロダクトを大勢の前で発表する 懇談会ではプレゼント交換会や立食があったり結構祭りっぽい雰囲気 と、まぁこんな感じだった気がする。&#xA;チーム内のバランスについては、自分たちの班はデザイナー4人とプログラマ1人という状態からのスタートだったけど、チームメンバー全員が開発を頑張ったので結局全員がデザイナー兼プログラマという形になってました。&#xA;enPiTの効果 enPiTを受講するメリット・デメリットとしては以下のような感じ。&#xA;メリット アジャイル開発が学べる チーム開発が学べる 開発のために必要な知識が身に付く アジャイル開発のスペシャリストに直接教えてもらえる！ 就活に有利になる デメリット 時間が消える メリットについて メリットがそんなに書けてないが悔しいですが、自分が強く感じたのはこの3つ。最後のは就活してないのでわかりませんが、先輩や先生方が何度も言っていたので一応書きました。&#xA;アジャイル開発が学べる&#xA;そのままなのでさらっと説明。夏合宿中の3日間はアジャイル開発についての知識を叩き込まれます。この夏合宿では実際にTDDやモブプロなどの技法を使って開発を行いましたが、楽しい &amp;amp; 実践的なので結構記憶に残っています。&#xA;ここで学んだことを10月からのチーム開発に生かして行くことが目標。結構難しかったりするので必死に実践・工夫を繰り返していく。その過程を学ぶことも目的になっていそう。&#xA;余談ですが、合宿で記憶に残っているのは宿が綺麗っていうのと夜が祭りだったということ。結構メリハリがある合宿で、昼はがっつりアジャイル開発について学んで、夜はがっつり遊ぶ。けん玉してたりボドゲや筋トレなど好き勝手に遊んでました。 でも休まないと次の日が辛い。 「メリハリってこういうことかー」という学びもありました。&#xA;チーム開発が学べる&#xA;「チーム開発、うっ、頭が&amp;hellip;」という人もいるのでは&amp;hellip;?&#xA;期間的にはソフトウェア演習と似たようなものですが、一度チーム開発を体験しているので、その時のノウハウ＋夏合宿での学びを生かしてチーム開発が行えます。そのためか、問題発見→工夫→改善のサイクルが速く、チームが成長していくという感覚と、どうやったらうまく開発を回せるかという感覚を知ることができました。enPiTは自由参加なのでチームメンバーの士気がそもそも高いということもあると思いますが&amp;hellip;。&#xA;そんな感じで、チーム開発の手法を学んで実践することができるので、チーム開発を学ぶにはとてもいい機会だと思いました。&#xA;開発のために必要な知識が身に付く&#xA;これは人によると思いますが、Gitや開発に使用しているプログラミング言語の特徴、さらにはデザインパターンなどを学べるいい機会になったと思います。自分はSwiftで一度痛い目を見ていたので「2度と触るか」って感じでしたが、今回自ら死地へと飛び込んだことで、Swiftが持っている特徴やMVCモデル、インターフェースの設計など、開発のために必要な知識を得ることができました（多分こんな機会じゃなきゃ触らない）。&#xA;このメリットには結構周りの人が触れていたので、他の参加者の話も詳しく聞いてみたい。&#xA;アジャイル開発のスペシャリストに直接教えてもらえる！&#xA;そのままですが、講師の方がとてもわかりやすく丁寧に教えてくれます。自分はあまりできなかったのですが、この機会を存分に使って知識を吸収できるとすごく成長できると思います。&#xA;デメリット 時間が消える</description>
     </item>
-    
     <item>
       <title>Rust環境をDockerで作成した</title>
       <link>//kagari.github.io/note/2019/docker_rust/</link>
       <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>//kagari.github.io/note/2019/docker_rust/</guid>
-      <description>DockerでRustの環境を作る際に、なんやかんや色々ハマってしまったので備忘録として。
-docker内でのコマンドは (docker)$ って感じで書いています。
-あと、便利に使えるようにzsh用のコマンド化したコードも載せています。
-作成環境 MacBookPro == 2017 Core i5 16GB Docker desktop == 2.1.0.1 結果  ハマったところ 普通にRustの公式Dockerイメージをpullしてきても、ベースがlinuxなのでLinux向けにコンパイルされてしまう  cargo runまでは別に動くんだけど、buildとかしても作成されるバイナリはlinux用なのでホスト側（Mac）で実行できない&amp;hellip;orz
-そこで、cross compileができるイメージを探したところ、この記事の方が書いたDockerfileを参考に（ほぼ写経）して作成した。
-$ docker run --rm -it rust:osx bash (docker)$ CROSS_TRIPLE=x86_64-apple-darwin (docker)$ crossbuild cargo --target=x86_64-apple-darwin これで無事にMacで動くバイナリのbuildができるようになった。
-CROSS_TRIPLE=x86_64-apple-darwin この環境変数を書き込んでいる箇所をDockerfileの中に埋めようと思ったが、うまくいかない  原因が特定できていないが、 CROSS_TRIPLE=x86_64-apple-darwin という環境変数をDockerfileに下のように設定しても、うまくいかずにハマった。
-ENV CROSS_TRIPLE=x86_64-apple-darwin ... $(docker) echo $CROSS_TRIPLE # x86_64-apple-darwin14 ！？
-なぜかx86_64-apple-darwin 14 になってしまう。
-ARGからENVに落とし込んだり、無理やり設定しようとしたがうまくいかなかった。
-docker run CROSS_TRIPLE=x86_64-apple-darwin crossbuild cargo --target=x86_64-apple-darwin こんな感じで無理やり設定しようともした。
-結果的に、Dockerfileに書くのを諦めて、以下のように docker run -e で設定して、 cargo build するとうまくいった。</description>
+      <description>DockerでRustの環境を作る際に、なんやかんや色々ハマってしまったので備忘録として。&#xA;docker内でのコマンドは (docker)$ って感じで書いています。&#xA;あと、便利に使えるようにzsh用のコマンド化したコードも載せています。&#xA;作成環境 MacBookPro == 2017 Core i5 16GB Docker desktop == 2.1.0.1 結果 ハマったところ 普通にRustの公式Dockerイメージをpullしてきても、ベースがlinuxなのでLinux向けにコンパイルされてしまう cargo runまでは別に動くんだけど、buildとかしても作成されるバイナリはlinux用なのでホスト側（Mac）で実行できない&amp;hellip;orz&#xA;そこで、cross compileができるイメージを探したところ、この記事の方が書いたDockerfileを参考に（ほぼ写経）して作成した。&#xA;$ docker run --rm -it rust:osx bash (docker)$ CROSS_TRIPLE=x86_64-apple-darwin (docker)$ crossbuild cargo --target=x86_64-apple-darwin これで無事にMacで動くバイナリのbuildができるようになった。&#xA;CROSS_TRIPLE=x86_64-apple-darwin この環境変数を書き込んでいる箇所をDockerfileの中に埋めようと思ったが、うまくいかない 原因が特定できていないが、 CROSS_TRIPLE=x86_64-apple-darwin という環境変数をDockerfileに下のように設定しても、うまくいかずにハマった。&#xA;ENV CROSS_TRIPLE=x86_64-apple-darwin ... $(docker) echo $CROSS_TRIPLE # x86_64-apple-darwin14 ！？&#xA;なぜかx86_64-apple-darwin 14 になってしまう。&#xA;ARGからENVに落とし込んだり、無理やり設定しようとしたがうまくいかなかった。&#xA;docker run CROSS_TRIPLE=x86_64-apple-darwin crossbuild cargo --target=x86_64-apple-darwin こんな感じで無理やり設定しようともした。&#xA;結果的に、Dockerfileに書くのを諦めて、以下のように docker run -e で設定して、 cargo build するとうまくいった。</description>
     </item>
-    
     <item>
       <title>hyper (terminal)を使ってみた</title>
       <link>//kagari.github.io/note/install_hyper/</link>
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
-      
       <guid>//kagari.github.io/note/install_hyper/</guid>
-      <description>1年間itermを使ってきたんですが、最近(ちょっと前から？)人気なhyperが気になっていたので少し使ってみました。
-参考 【Hyper】良い感じのターミナル環境を構築 - Qiita
-おしゃれなターミナルHyperのテーマ変更、プラグイン追加、日本語化するための手順
-hyper(hyperterm) 2.0 を日本語対応する - Qiita
-アジェンダ  install方法 設定ファイル plugin 使ってみた感想  install方法 macを使っているので Homebrew を使ってinstall
-brew cask install hyper これだけですw
-設定ファイル hyperの設定ファイルは~/.hyper.jsになります。
-とりあえず日本語設定は必要と思われるので以下のように設定
-// for environment variables env: { LANG: &#39;ja_JP.UTF-8&#39;, LC_ALL: &#39;ja_JP.UTF-8&#39; }, もちろんフォントやフォントサイズなどを変更することもできます
-// default font size in pixels for all tabs fontSize: 12, // font family with optional fallbacks fontFamily: &#39;Menlo, &amp;quot;DejaVu Sans Mono&amp;quot;, Consolas, &amp;quot;Lucida Console&amp;quot;, monospace&#39;, plugin pluginはhttps://github.com/bnb/awesome-hyperにあるので、好きなものを探して入れてみる。</description>
+      <description>1年間itermを使ってきたんですが、最近(ちょっと前から？)人気なhyperが気になっていたので少し使ってみました。&#xA;参考 【Hyper】良い感じのターミナル環境を構築 - Qiita&#xA;おしゃれなターミナルHyperのテーマ変更、プラグイン追加、日本語化するための手順&#xA;hyper(hyperterm) 2.0 を日本語対応する - Qiita&#xA;アジェンダ install方法 設定ファイル plugin 使ってみた感想 install方法 macを使っているので Homebrew を使ってinstall&#xA;brew cask install hyper これだけですw&#xA;設定ファイル hyperの設定ファイルは~/.hyper.jsになります。&#xA;とりあえず日本語設定は必要と思われるので以下のように設定&#xA;// for environment variables env: { LANG: &amp;#39;ja_JP.UTF-8&amp;#39;, LC_ALL: &amp;#39;ja_JP.UTF-8&amp;#39; }, もちろんフォントやフォントサイズなどを変更することもできます&#xA;// default font size in pixels for all tabs fontSize: 12, // font family with optional fallbacks fontFamily: &amp;#39;Menlo, &amp;#34;DejaVu Sans Mono&amp;#34;, Consolas, &amp;#34;Lucida Console&amp;#34;, monospace&amp;#39;, plugin pluginはhttps://github.com/bnb/awesome-hyperにあるので、好きなものを探して入れてみる。&#xA;入れたいプラグインを以下のように記述する&#xA;plugins: [ &amp;#39;hyper-altair&amp;#39;, &amp;#39;hyper-search&amp;#39;, &amp;#39;hyper-statusline&amp;#39;, &amp;#39;hyper-tab-icons&amp;#39;, &amp;#39;hyperterm-visor&amp;#39;, &amp;#39;hypercwd&amp;#39;, ], プラグインの説明 hyper-altair</description>
     </item>
-    
     <item>
       <title>RSA暗号方式をpythonで実装してみる</title>
       <link>//kagari.github.io/note/2018/adventcalender2018/</link>
       <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
-      
       <guid>//kagari.github.io/note/2018/adventcalender2018/</guid>
-      <description>琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。
-こんにちは、kagariです！
-私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw
-記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。
-何か至らない点があっても暖かい目で見守ってくださいm(__)m
-RSA暗号方式ってなに？ RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wikiより)
-うん、完全に理解した(多分)
-要するに素数を使った暗号方式だね!
-今回はこれをpythonで実装していく
-アルゴリズム 鍵の生成 まずは公開鍵の生成を行う。
-2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。
-さらに、nとmとが互いに素である数$e$を定める。
-この(e,n)が公開鍵である。
-次に、秘密鍵の生成を行う。
-ed mod ((p-1)(q-1)) = 1となるようなdを見つける。
-このdが秘密鍵である。
-公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。
-暗号化と複合 暗号化 平文(M)を暗号化すると、暗号文(C)は
-C=M^e mod nとなる。
-これで暗号化を行う。
-複合 複合は、暗号文(C)を以下のようにして平文(M)にすることができる。
-M=C^d mod n
-これで複合を行う。
-実際に実装していく 早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。
-が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()
-使用するライブラリはmathだけ!
-import math  とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。
-まずは公開鍵から
-def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e += 1 return e, n  次に、秘密鍵を生成する関数を用意</description>
+      <description>琉球大学工学科知能情報コースAdventCalender2018の8日目の記事です。&#xA;こんにちは、kagariです！&#xA;私自身2回目の記事でAdvent Calendarに登録するなんて思ってもみませんでしたw&#xA;記事の内容を「RSA暗号方式をpythonで実装する」って決めた理由としては、最近授業で習ったからというだけの理由です。&#xA;何か至らない点があっても暖かい目で見守ってくださいm(__)m&#xA;RSA暗号方式ってなに？ RSA暗号とは、桁数が大きい合成数の素因数分解問題が困難であることを安全性の根拠とした公開鍵暗号の一つである。(wikiより)&#xA;うん、完全に理解した(多分)&#xA;要するに素数を使った暗号方式だね!&#xA;今回はこれをpythonで実装していく&#xA;アルゴリズム 鍵の生成 まずは公開鍵の生成を行う。&#xA;2つの素数をp,qとし、n=p×qとm=(p-1)×(q-1) を求める。&#xA;さらに、nとmとが互いに素である数$e$を定める。&#xA;この(e,n)が公開鍵である。&#xA;次に、秘密鍵の生成を行う。&#xA;ed mod ((p-1)(q-1)) = 1となるようなdを見つける。&#xA;このdが秘密鍵である。&#xA;公開鍵と秘密鍵を生成したらp,qは用済みなのでしっかり破棄しましょう。&#xA;暗号化と複合 暗号化 平文(M)を暗号化すると、暗号文(C)は&#xA;C=M^e mod nとなる。&#xA;これで暗号化を行う。&#xA;複合 複合は、暗号文(C)を以下のようにして平文(M)にすることができる。&#xA;M=C^d mod n&#xA;これで複合を行う。&#xA;実際に実装していく 早速、どうやってpとqを生成すればいいかわからないという問題にぶつかった。&#xA;が、今回は全然セキュリティとかは考えていないので、手打ちにすることにする()&#xA;使用するライブラリはmathだけ!&#xA;import math とりあえず、公開鍵と秘密鍵を生成する関数を作ってみる。&#xA;まずは公開鍵から&#xA;def get_public_number(p, q): n = p*q # mと互いに素な数eを見つける m = (p-1)*(q-1) e = 2 while math.gcd(m, e) != 1: e += 1 return e, n 次に、秘密鍵を生成する関数を用意</description>
     </item>
-    
     <item>
       <title>Octave GUIのインストール方法</title>
       <link>//kagari.github.io/note/install_octave/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
-      
       <guid>//kagari.github.io/note/install_octave/</guid>
-      <description>octave GUIと検索してもGUIソフトの入れ方が古いようで何度もhomebrewに怒られてしましました。
-基本的に参考にしたのは以下の記事です。
-macにoctaveのインストール 書き中~
-Mac OS X に GNU Octave をインストールする
-上記のやり方だと、homebrewにhomebrew/scienceというtapは空と言われます。
-$ brew tap homebrew/science Error: homebrew/science was deprecated. This tap is now empty as all its formulae were migrated  素直に公式のページを見るとインストール方法が載っていたので、公式にしたがってインストールを進めます。
-今回は、homebrewを使ってインストールを行いました。
-環境
- macOS Mojave 10.14.2 homebrew 2.0.1  インストール手順
-$ brew tap octave-app/octave-app $ brew cask install octave-app  以上。
-ただ、GUIのOctaveを使ってみると、日本語が文字化けしており、未だ解決できていません&amp;hellip;
-フォント変えたりしたけど解決策がわからない。
-解決できたら追記する予定です。</description>
+      <description>octave GUIと検索してもGUIソフトの入れ方が古いようで何度もhomebrewに怒られてしましました。&#xA;基本的に参考にしたのは以下の記事です。&#xA;macにoctaveのインストール 書き中~&#xA;Mac OS X に GNU Octave をインストールする&#xA;上記のやり方だと、homebrewにhomebrew/scienceというtapは空と言われます。&#xA;$ brew tap homebrew/science Error: homebrew/science was deprecated. This tap is now empty as all its formulae were migrated 素直に公式のページを見るとインストール方法が載っていたので、公式にしたがってインストールを進めます。&#xA;今回は、homebrewを使ってインストールを行いました。&#xA;環境&#xA;macOS Mojave 10.14.2 homebrew 2.0.1 インストール手順&#xA;$ brew tap octave-app/octave-app $ brew cask install octave-app 以上。&#xA;ただ、GUIのOctaveを使ってみると、日本語が文字化けしており、未だ解決できていません&amp;hellip;&#xA;フォント変えたりしたけど解決策がわからない。&#xA;解決できたら追記する予定です。</description>
     </item>
-    
   </channel>
 </rss>

@@ -10,15 +10,15 @@
 <meta name="keywords" content="" />
 <meta name="description" content="brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
 そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
-/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new!  また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
+/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new! また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
 コンパイルする際のコマンドは以下のようになる
-g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4` 今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
 brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
-brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる
-dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
+brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール そのままコンパイルするとエラーがでる
+dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
 バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
-brew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る
-g&#43;&#43; @@@.">
+brew switch openblas 0.3.4 この状態で、以下のようにコンパイルすると通る
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv` 参考文献 OpenCV(C&#43;&#43;)の画像処理メモ - Qiita">
 <meta name="author" content="">
 <link rel="canonical" href="//kagari.github.io/error/opencv4_for_cpp/" />
 <link href="//kagari.github.io/assets/css/stylesheet.min.521ef667ad8ddd035b65438a1d85fd5707173fefe338d23bc2544d116fa47efb.css" integrity="sha256-Uh72Z62N3QNbZUOKHYX9VwcXP&#43;/jONI7wlRNEW&#43;kfvs=" rel="preload stylesheet"
@@ -31,21 +31,21 @@ g&#43;&#43; @@@.">
 <link rel="mask-icon" href="//kagari.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.91.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
 <meta property="og:title" content="C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4)" />
 <meta property="og:description" content="brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
 そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
-/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new!  また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
+/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new! また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
 コンパイルする際のコマンドは以下のようになる
-g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4` 今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
 brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
-brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる
-dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
+brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール そのままコンパイルするとエラーがでる
+dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
 バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
-brew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る
-g&#43;&#43; @@@." />
+brew switch openblas 0.3.4 この状態で、以下のようにコンパイルすると通る
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv` 参考文献 OpenCV(C&#43;&#43;)の画像処理メモ - Qiita" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="//kagari.github.io/error/opencv4_for_cpp/" />
 <meta property="article:published_time" content="2018-10-01T00:00:00+00:00" />
@@ -54,15 +54,15 @@ g&#43;&#43; @@@." />
 <meta name="twitter:title" content="C&#43;&#43;のコンパイル時にopencvが見つからない(opencv4)"/>
 <meta name="twitter:description" content="brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
 そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
-/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new!  また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
+/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new! また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
 コンパイルする際のコマンドは以下のようになる
-g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4` 今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
 brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
-brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる
-dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
+brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール そのままコンパイルするとエラーがでる
+dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
 バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
-brew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る
-g&#43;&#43; @@@."/>
+brew switch openblas 0.3.4 この状態で、以下のようにコンパイルすると通る
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv` 参考文献 OpenCV(C&#43;&#43;)の画像処理メモ - Qiita"/>
 
 <script type="application/ld+json">
 {
@@ -74,7 +74,7 @@ g&#43;&#43; @@@."/>
   "keywords": [
     
   ],
-  "articleBody": "brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた\nそのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった\n/usr/local/include/opencv /usr/local/include/opencv2 - /usr/local/include/opencv4  また、 opencv4 からC++コンパイラのバージョン 11 が必須になっている。\nコンパイルする際のコマンドは以下のようになる\ng++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった\nbrewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする\nbrew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる\ndyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい\nバージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す\nbrew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る\ng++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv`  参考文献 OpenCV(C++)の画像処理メモ - Qiita\nOpenCVインストール構成の変遷（OpenCV 3.4.3，3.4.4，4.0.0） - Qiita\nSetting up OpenCV and C++ development environment in Xcode for Computer Vision projects\nHomebrewで旧バージョンをインストールする方法(brew versionsはもう使えない) - Qiita\n",
+  "articleBody": "brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた\nそのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった\n/usr/local/include/opencv /usr/local/include/opencv2 -\u003e /usr/local/include/opencv4 \u003c-new! また、 opencv4 からC++コンパイラのバージョン 11 が必須になっている。\nコンパイルする際のコマンドは以下のようになる\ng++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv4` 今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった\nbrewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする\nbrew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール そのままコンパイルするとエラーがでる\ndyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい\nバージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す\nbrew switch openblas 0.3.4 この状態で、以下のようにコンパイルすると通る\ng++ @@@.cpp -o @@@ -std=c++11 `pkg-config --cflags --libs opencv` 参考文献 OpenCV(C++)の画像処理メモ - Qiita\nOpenCVインストール構成の変遷（OpenCV 3.4.3，3.4.4，4.0.0） - Qiita\nSetting up OpenCV and C++ development environment in Xcode for Computer Vision projects\nHomebrewで旧バージョンをインストールする方法(brew versionsはもう使えない) - Qiita\n",
   "wordCount" : "98",
   "inLanguage": "en",
   "datePublished": "2018-10-01T00:00:00Z",
@@ -203,7 +203,7 @@ brew switch opencv 3.4.3_2  # 過去のバージョンを再インストール
   </footer>
 </article>
     </main><footer class="footer">
-    <span>&copy; 2022 <a href="//kagari.github.io">kagari</a></span>
+    <span>&copy; 2024 <a href="//kagari.github.io">kagari</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>

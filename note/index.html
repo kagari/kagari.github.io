@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="//kagari.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.91.2" />
+<meta name="generator" content="Hugo 0.121.2">
 <link rel="alternate" type="application/rss&#43;xml" href="//kagari.github.io/note/index.xml">
 
 
@@ -115,7 +115,7 @@ why singularity？ 2022年の4月頃、研究でGPT-2を学習とデータの前
 ちなみに、研究室のサーバがコア数14スレッド数28メモリ128GBなのに対して学科サーバがコア数22スレッド数88メモリ512GBなので、前処理用にちょっとくらい適当なコードを書いてもパワーで押し切れてしまう環境です。
 学科サーバではどうやらsingularityという仮想技術？を用いているため、私もそれを使ってやることにしました。
 singularity &#43; GPU singularityの使い方に関してはsyskan、nal先生がとても丁寧にまとめているので、リンクを貼って満足します。
- Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。  singularity &#43; GPU &#43; jupyterLab 本題ですが、jupyterLabをsingularity &#43; GPU環境で動かします。
+Singularityのすゝめ SingularityとSlurmの実践例 新システムとしてTesla V100SでSingularityでSlurmな環境が導入されたので、BERT with SentencePiece を日本語 Wikipedia で学習してモデルを公開しましたを使ってlivedoor ニュースコーパスのジャンル推定するfine-tuningしてみた。 singularity &#43; GPU &#43; jupyterLab 本題ですが、jupyterLabをsingularity &#43; GPU環境で動かします。
 といってもやることはpipかcondaでinstallするだけで十分です。
 下がそのdefinition fileです。
 ほとんどDockerfileと同じように書けます。 umahara からのオススメを受けてmambaを使っています（速くて良い）。
@@ -183,7 +183,7 @@ singularity &#43; GPU singularityの使い方に関してはsyskan、nal先生�
 ルピシアのゆず茶は初めて飲んだけど普通に美味しかった。
 ただ、ドンキに売ってる1kgのやつとの違いがわからなかった…
 多分はちみつが1kgのやつよりもいい感じだったのかもしれない…
-順位をつけるなら  サクランボ 知覧 ゆたかみどり / 頴娃 あさつゆ ナツコイ ニルギリ 柚子茶 ロゼ ロワイヤル / ホワイトサングリア 柚子 栗 / モカ&amp;アッサム  感想 15種類くらいあるかなと思ってたけど、思っていたよりも飲んでいなかった。...</p>
+順位をつけるなら サクランボ 知覧 ゆたかみどり / 頴娃 あさつゆ ナツコイ ニルギリ 柚子茶 ロゼ ロワイヤル / ホワイトサングリア 柚子 栗 / モカ&amp;アッサム 感想 15種類くらいあるかなと思ってたけど、思っていたよりも飲んでいなかった。...</p>
   </section>
   <footer class="entry-footer">December 8, 2021
 </footer>
@@ -218,7 +218,7 @@ $ lualatex main.tex # 確認 $ ls main....</p>
   <section class="entry-content">
     <p>pyenv
 python自体のバージョンを管理する pipenv
-ライブラリ・パッケージを管理をする  pyenvのinstall brew install pyenv 設定ファイルに記述。
+ライブラリ・パッケージを管理をする pyenvのinstall brew install pyenv 設定ファイルに記述。
 以下はfish用の設定なので適宜zshやbashように書き換える必要がある。
 # config.fish if set PIPENV_VENV_IN_PROJECT or command -v pyenv &amp;&gt; /dev/null pyenv init - | source # 仮想環境置き場をプロジェクトディレクトリに含めるようにする set -x PIPENV_VENV_IN_PROJECT 1 end pipenvのinstall pipenvはpipでinstallするため、まずはpyenvでグローバルの仮想環境を作成しておくと良い。
 pyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3.9.0 # installしたversionをglobalに割り当てる pip install pipenv # 確認 which pipenv /usr/local/var/pyenv/shims/pipenv 仮想環境の作成 ここでは test ディレクトリ（プロジェクト）を作成して、その中に仮想環境を作成する。
@@ -241,7 +241,7 @@ pyenv install 3.9.0 # pythonのversionは好きなものでいい pyenv global 3
 私はこれまでterminal.appやiTerm2、hyperなどのターミナルエミュレータを使ってきましたが、最近はAlacrittyで作業をしています。
 Alacrittyは爆速なのですが、如何せんそのミニマムな設計から画面分割や新規タブの作成が行えないため不便だと感じやすく、新規参入者を減らしてしまっているような気がします。
 そこで、今回はTmuxと組み合わせてiTerm2風なキーバインドで画面分割や新規タブの作成が行えるようにしたいと思います。
-使用しているもの  Alacritty Tmux zsh  Alacritty Rustで書かれたターミナルエミュレータです。
+使用しているもの Alacritty Tmux zsh Alacritty Rustで書かれたターミナルエミュレータです。
 最小限な機能で爆速に動作することを目的に作られています。
 そのため、画面分割機能や新規ウィンドウ作成機能はありません。
 でもiTerm2のような縦横の画面分割機能は欲しいので、この記事をほぼ丸パクリ参考にTmuxを使っていい感じに画面分割できるようにします。
@@ -257,7 +257,9 @@ Tmuxはデフォルトのプレフィックスキーが Ctrl&#43;b になって�
 自分的には Ctrl&#43;q はあまり使っていないのでキーの割り当てを Ctrl&#43;b から Ctrl&#43;q に変更します。
 何かしらのエディタを使って ~/.tmux.conf ファイルを開きましょう（ない場合は作成します）。
 以下の設定を書き込みます。
-# ~/.tmux.conf set -g prefix C-q # Ctrl-qをプレフィックスキーに割り当て unbind C-b # Ctrl-bの割り当てを解除 ひとまずこれで Ctrl&#43;b がtmuxに奪われなくなりました。...</p>
+# ~/.tmux.conf set -g prefix C-q # Ctrl-qをプレフィックスキーに割り当て unbind C-b # Ctrl-bの割り当てを解除 ひとまずこれで Ctrl&#43;b がtmuxに奪われなくなりました。
+次に、Alacrittyの方の設定を行っていきます。
+Alacrittyには（もちろん）設定用のリッチなUIはなくyamlファイルに設定を書いていきます。...</p>
   </section>
   <footer class="entry-footer">December 18, 2020
 </footer>
@@ -298,7 +300,7 @@ apt-get install -y libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf
   <section class="entry-content">
     <p>ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。
 章が終わるたびに載せていきたいと思います。
-目次  第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章  第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
+目次 第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
 逆順などはreversed()を使って、あとは文字列をリストと見立ててゴチャゴチャ操作する感じで書いていきました。
 途中split()でのデフォルトで文字単位で区切ってくれると勘違いしていて少し引っ掛かったりしました…
 問題04で条件が分岐するindexが不規則だったのが気になったけど、辞書のキーが衝突しないように決めたのかなとも思ったり。
@@ -307,7 +309,7 @@ n-gramに関してはデータマイニングの授業でも触ったのであ�
 問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。 今回はreturnを使わずにyieldを使ってみましたが、for内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。
 cipherは下のように実装しました。
 def cipher(string: str): for s in string: if s.islower(): yield chr(219 - ord(s)) else: yield s &#34;&#34;.join((cipher(&#34;hoge is fuga.&#34;))) typoglycemiaは下のような感じになりました。
-def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt; 4: yield s[0] &#43; &#34;&#34;.join(random.sample(s[1:-1], len(s)-2)) &#43; s[-1] else: yield s &#34; &#34;....</p>
+def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt; 4: yield s[0] &#43; &#34;&#34;.join(random.sample(s[1:-1], len(s)-2)) &#43; s[-1] else: yield s &#34; &#34;.join(typoglycemia(&#34;Alice, a seven-year-old girl, is feeling....</p>
   </section>
   <footer class="entry-footer">September 1, 2020
 </footer>
@@ -322,13 +324,27 @@ def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt
   </header>
   <section class="entry-content">
     <p>enPiT2019が終わったので、ちょっと記憶が霞む前に振り返りを。
-目次  enPiTの受講動機 enPiTの流れ enPiTの効果 自分の振り返り 最後に  enPiTの受講動機 受講しようと思った理由としては、ソフトウェア演習の授業でチーム開発をやってて「もう少し上手くできたなぁ」と思ってたので、力試し &amp; チーム開発周りの力を身につけるために参加しました。
+目次 enPiTの受講動機 enPiTの流れ enPiTの効果 自分の振り返り 最後に enPiTの受講動機 受講しようと思った理由としては、ソフトウェア演習の授業でチーム開発をやってて「もう少し上手くできたなぁ」と思ってたので、力試し &amp; チーム開発周りの力を身につけるために参加しました。
 まぁ、決定打は先輩が「やった方がいいよ！！」と言ってたからですね、はい。 あとは友達が参加するからとかそんな感じ。
 enPiTの流れ ちょっと記憶が曖昧ですが…
- いつだったか忘れたけどチーム決め  5人1組くらいで学生が勝手に決める チーム内のバランスは結構大事なので慎重に決める必要がある   8月：プロダクトの考え方を学ぶ  産業社会学言論Ⅱという授業でプロダクトを考える方法を学ぶ 実際にプロダクトを作っている方が講師として来てくれる 講義形式のもありますが、大体実際にプロダクトを考えながら学べる   9/1日〜6日：夏合宿  宿に缶詰状態でアジャイル開発を学びます 多分ここが一番楽しい（個人の感想です   10月：開発開始  enPiT期間中は毎週デモがある（Demo or Die プロダクトが変わりまくる時期   11月中旬：中間発表（デモ会  毎週のデモとあまり変わらない   12月：ラストスパート  この辺でチーム毎の士気に差が出る（気がした   12月21日：最終成果発表会  自分達が開発してきたプロダクトを大勢の前で発表する 懇談会ではプレゼント交換会や立食があったり結構祭りっぽい雰囲気    と、まぁこんな感じだった気がする。
+いつだったか忘れたけどチーム決め 5人1組くらいで学生が勝手に決める チーム内のバランスは結構大事なので慎重に決める必要がある 8月：プロダクトの考え方を学ぶ 産業社会学言論Ⅱという授業でプロダクトを考える方法を学ぶ 実際にプロダクトを作っている方が講師として来てくれる 講義形式のもありますが、大体実際にプロダクトを考えながら学べる 9/1日〜6日：夏合宿 宿に缶詰状態でアジャイル開発を学びます 多分ここが一番楽しい（個人の感想です 10月：開発開始 enPiT期間中は毎週デモがある（Demo or Die プロダクトが変わりまくる時期 11月中旬：中間発表（デモ会 毎週のデモとあまり変わらない 12月：ラストスパート この辺でチーム毎の士気に差が出る（気がした 12月21日：最終成果発表会 自分達が開発してきたプロダクトを大勢の前で発表する 懇談会ではプレゼント交換会や立食があったり結構祭りっぽい雰囲気 と、まぁこんな感じだった気がする。
 チーム内のバランスについては、自分たちの班はデザイナー4人とプログラマ1人という状態からのスタートだったけど、チームメンバー全員が開発を頑張ったので結局全員がデザイナー兼プログラマという形になってました。
 enPiTの効果 enPiTを受講するメリット・デメリットとしては以下のような感じ。
- メリット  アジャイル開発が学べる チーム開発が学べる 開発のために必要な知識が身に付く アジャイル開発のスペシャリストに直接教えてもらえる！ 就活に有利になる   デメリット  時間が消える    メリットについて メリットがそんなに書けてないが悔しいですが、自分が強く感じたのはこの3つ。最後のは就活してないのでわかりませんが、先輩や先生方が何度も言っていたので一応書きました。...</p>
+メリット アジャイル開発が学べる チーム開発が学べる 開発のために必要な知識が身に付く アジャイル開発のスペシャリストに直接教えてもらえる！ 就活に有利になる デメリット 時間が消える メリットについて メリットがそんなに書けてないが悔しいですが、自分が強く感じたのはこの3つ。最後のは就活してないのでわかりませんが、先輩や先生方が何度も言っていたので一応書きました。
+アジャイル開発が学べる
+そのままなのでさらっと説明。夏合宿中の3日間はアジャイル開発についての知識を叩き込まれます。この夏合宿では実際にTDDやモブプロなどの技法を使って開発を行いましたが、楽しい &amp; 実践的なので結構記憶に残っています。
+ここで学んだことを10月からのチーム開発に生かして行くことが目標。結構難しかったりするので必死に実践・工夫を繰り返していく。その過程を学ぶことも目的になっていそう。
+余談ですが、合宿で記憶に残っているのは宿が綺麗っていうのと夜が祭りだったということ。結構メリハリがある合宿で、昼はがっつりアジャイル開発について学んで、夜はがっつり遊ぶ。けん玉してたりボドゲや筋トレなど好き勝手に遊んでました。 でも休まないと次の日が辛い。 「メリハリってこういうことかー」という学びもありました。
+チーム開発が学べる
+「チーム開発、うっ、頭が…」という人もいるのでは…?
+期間的にはソフトウェア演習と似たようなものですが、一度チーム開発を体験しているので、その時のノウハウ＋夏合宿での学びを生かしてチーム開発が行えます。そのためか、問題発見→工夫→改善のサイクルが速く、チームが成長していくという感覚と、どうやったらうまく開発を回せるかという感覚を知ることができました。enPiTは自由参加なのでチームメンバーの士気がそもそも高いということもあると思いますが…。
+そんな感じで、チーム開発の手法を学んで実践することができるので、チーム開発を学ぶにはとてもいい機会だと思いました。
+開発のために必要な知識が身に付く
+これは人によると思いますが、Gitや開発に使用しているプログラミング言語の特徴、さらにはデザインパターンなどを学べるいい機会になったと思います。自分はSwiftで一度痛い目を見ていたので「2度と触るか」って感じでしたが、今回自ら死地へと飛び込んだことで、Swiftが持っている特徴やMVCモデル、インターフェースの設計など、開発のために必要な知識を得ることができました（多分こんな機会じゃなきゃ触らない）。
+このメリットには結構周りの人が触れていたので、他の参加者の話も詳しく聞いてみたい。
+アジャイル開発のスペシャリストに直接教えてもらえる！
+そのままですが、講師の方がとてもわかりやすく丁寧に教えてくれます。自分はあまりできなかったのですが、この機会を存分に使って知識を吸収できるとすごく成長できると思います。
+デメリット 時間が消える...</p>
   </section>
   <footer class="entry-footer">December 24, 2019
 </footer>
@@ -345,10 +361,10 @@ enPiTの効果 enPiTを受講するメリット・デメリットとしては以
     <p>DockerでRustの環境を作る際に、なんやかんや色々ハマってしまったので備忘録として。
 docker内でのコマンドは (docker)$ って感じで書いています。
 あと、便利に使えるようにzsh用のコマンド化したコードも載せています。
-作成環境 MacBookPro == 2017 Core i5 16GB Docker desktop == 2.1.0.1 結果  ハマったところ 普通にRustの公式Dockerイメージをpullしてきても、ベースがlinuxなのでLinux向けにコンパイルされてしまう  cargo runまでは別に動くんだけど、buildとかしても作成されるバイナリはlinux用なのでホスト側（Mac）で実行できない…orz
+作成環境 MacBookPro == 2017 Core i5 16GB Docker desktop == 2.1.0.1 結果 ハマったところ 普通にRustの公式Dockerイメージをpullしてきても、ベースがlinuxなのでLinux向けにコンパイルされてしまう cargo runまでは別に動くんだけど、buildとかしても作成されるバイナリはlinux用なのでホスト側（Mac）で実行できない…orz
 そこで、cross compileができるイメージを探したところ、この記事の方が書いたDockerfileを参考に（ほぼ写経）して作成した。
 $ docker run --rm -it rust:osx bash (docker)$ CROSS_TRIPLE=x86_64-apple-darwin (docker)$ crossbuild cargo --target=x86_64-apple-darwin これで無事にMacで動くバイナリのbuildができるようになった。
-CROSS_TRIPLE=x86_64-apple-darwin この環境変数を書き込んでいる箇所をDockerfileの中に埋めようと思ったが、うまくいかない  原因が特定できていないが、 CROSS_TRIPLE=x86_64-apple-darwin という環境変数をDockerfileに下のように設定しても、うまくいかずにハマった。
+CROSS_TRIPLE=x86_64-apple-darwin この環境変数を書き込んでいる箇所をDockerfileの中に埋めようと思ったが、うまくいかない 原因が特定できていないが、 CROSS_TRIPLE=x86_64-apple-darwin という環境変数をDockerfileに下のように設定しても、うまくいかずにハマった。
 ENV CROSS_TRIPLE=x86_64-apple-darwin ... $(docker) echo $CROSS_TRIPLE # x86_64-apple-darwin14 ！？
 なぜかx86_64-apple-darwin 14 になってしまう。
 ARGからENVに落とし込んだり、無理やり設定しようとしたがうまくいかなかった。
@@ -371,12 +387,14 @@ docker run CROSS_TRIPLE=x86_64-apple-darwin crossbuild cargo --target=x86_64-app
 参考 【Hyper】良い感じのターミナル環境を構築 - Qiita
 おしゃれなターミナルHyperのテーマ変更、プラグイン追加、日本語化するための手順
 hyper(hyperterm) 2.0 を日本語対応する - Qiita
-アジェンダ  install方法 設定ファイル plugin 使ってみた感想  install方法 macを使っているので Homebrew を使ってinstall
+アジェンダ install方法 設定ファイル plugin 使ってみた感想 install方法 macを使っているので Homebrew を使ってinstall
 brew cask install hyper これだけですw
 設定ファイル hyperの設定ファイルは~/.hyper.jsになります。
 とりあえず日本語設定は必要と思われるので以下のように設定
 // for environment variables env: { LANG: &#39;ja_JP.UTF-8&#39;, LC_ALL: &#39;ja_JP.UTF-8&#39; }, もちろんフォントやフォントサイズなどを変更することもできます
-// default font size in pixels for all tabs fontSize: 12, // font family with optional fallbacks fontFamily: &#39;Menlo, &#34;DejaVu Sans Mono&#34;, Consolas, &#34;Lucida Console&#34;, monospace&#39;, plugin pluginはhttps://github.com/bnb/awesome-hyperにあるので、好きなものを探して入れてみる。...</p>
+// default font size in pixels for all tabs fontSize: 12, // font family with optional fallbacks fontFamily: &#39;Menlo, &#34;DejaVu Sans Mono&#34;, Consolas, &#34;Lucida Console&#34;, monospace&#39;, plugin pluginはhttps://github.com/bnb/awesome-hyperにあるので、好きなものを探して入れてみる。
+入れたいプラグインを以下のように記述する
+plugins: [ &#39;hyper-altair&#39;, &#39;hyper-search&#39;, &#39;hyper-statusline&#39;, &#39;hyper-tab-icons&#39;, &#39;hyperterm-visor&#39;, &#39;hypercwd&#39;, ], プラグインの説明 hyper-altair...</p>
   </section>
   <footer class="entry-footer">April 1, 2019
 </footer>
@@ -389,7 +407,7 @@ brew cask install hyper これだけですw
 </footer>
 
     </main><footer class="footer">
-    <span>&copy; 2022 <a href="//kagari.github.io">kagari</a></span>
+    <span>&copy; 2024 <a href="//kagari.github.io">kagari</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
@@ -406,7 +424,7 @@ brew cask install hyper これだけですw
 
 
 
-<script defer src="//kagari.github.io/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<script defer src="//kagari.github.io/assets/js/highlight.min.5b9ae0304f93db6cc493f51846f012428af399c614b4f2fbdb7fa59dd4d5ef5b.js" integrity="sha256-W5rgME&#43;T22zEk/UYRvASQorzmcYUtPL723&#43;lndTV71s="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {

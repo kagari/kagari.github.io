@@ -10,7 +10,7 @@
 <meta name="keywords" content="" />
 <meta name="description" content="ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。
 章が終わるたびに載せていきたいと思います。
-目次  第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章  第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
+目次 第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
 逆順などはreversed()を使って、あとは文字列をリストと見立ててゴチャゴチャ操作する感じで書いていきました。
 途中split()でのデフォルトで文字単位で区切ってくれると勘違いしていて少し引っ掛かったりしました&hellip;
 問題04で条件が分岐するindexが不規則だったのが気になったけど、辞書のキーが衝突しないように決めたのかなとも思ったり。
@@ -19,7 +19,7 @@ n-gramに関してはデータマイニングの授業でも触ったのであ�
 問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。 今回はreturnを使わずにyieldを使ってみましたが、for内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。
 cipherは下のように実装しました。
 def cipher(string: str): for s in string: if s.islower(): yield chr(219 - ord(s)) else: yield s &#34;&#34;.join((cipher(&#34;hoge is fuga.&#34;))) typoglycemiaは下のような感じになりました。
-def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt; 4: yield s[0] &#43; &#34;&#34;.join(random.sample(s[1:-1], len(s)-2)) &#43; s[-1] else: yield s &#34; &#34;.">
+def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt; 4: yield s[0] &#43; &#34;&#34;.join(random.sample(s[1:-1], len(s)-2)) &#43; s[-1] else: yield s &#34; &#34;.join(typoglycemia(&#34;Alice, a seven-year-old girl, is feeling.">
 <meta name="author" content="">
 <link rel="canonical" href="//kagari.github.io/note/2020/nlp100/" />
 <link href="//kagari.github.io/assets/css/stylesheet.min.521ef667ad8ddd035b65438a1d85fd5707173fefe338d23bc2544d116fa47efb.css" integrity="sha256-Uh72Z62N3QNbZUOKHYX9VwcXP&#43;/jONI7wlRNEW&#43;kfvs=" rel="preload stylesheet"
@@ -32,13 +32,13 @@ def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt
 <link rel="mask-icon" href="//kagari.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.91.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
 <meta property="og:title" content="NLP100本ノック" />
 <meta property="og:description" content="ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。
 章が終わるたびに載せていきたいと思います。
-目次  第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章  第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
+目次 第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
 逆順などはreversed()を使って、あとは文字列をリストと見立ててゴチャゴチャ操作する感じで書いていきました。
 途中split()でのデフォルトで文字単位で区切ってくれると勘違いしていて少し引っ掛かったりしました&hellip;
 問題04で条件が分岐するindexが不規則だったのが気になったけど、辞書のキーが衝突しないように決めたのかなとも思ったり。
@@ -47,7 +47,7 @@ n-gramに関してはデータマイニングの授業でも触ったのであ�
 問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。 今回はreturnを使わずにyieldを使ってみましたが、for内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。
 cipherは下のように実装しました。
 def cipher(string: str): for s in string: if s.islower(): yield chr(219 - ord(s)) else: yield s &#34;&#34;.join((cipher(&#34;hoge is fuga.&#34;))) typoglycemiaは下のような感じになりました。
-def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt; 4: yield s[0] &#43; &#34;&#34;.join(random.sample(s[1:-1], len(s)-2)) &#43; s[-1] else: yield s &#34; &#34;." />
+def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt; 4: yield s[0] &#43; &#34;&#34;.join(random.sample(s[1:-1], len(s)-2)) &#43; s[-1] else: yield s &#34; &#34;.join(typoglycemia(&#34;Alice, a seven-year-old girl, is feeling." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="//kagari.github.io/note/2020/nlp100/" />
 <meta property="article:published_time" content="2020-09-01T00:00:00+00:00" />
@@ -56,7 +56,7 @@ def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt
 <meta name="twitter:title" content="NLP100本ノック"/>
 <meta name="twitter:description" content="ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。
 章が終わるたびに載せていきたいと思います。
-目次  第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章  第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
+目次 第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。
 逆順などはreversed()を使って、あとは文字列をリストと見立ててゴチャゴチャ操作する感じで書いていきました。
 途中split()でのデフォルトで文字単位で区切ってくれると勘違いしていて少し引っ掛かったりしました&hellip;
 問題04で条件が分岐するindexが不規則だったのが気になったけど、辞書のキーが衝突しないように決めたのかなとも思ったり。
@@ -65,7 +65,7 @@ n-gramに関してはデータマイニングの授業でも触ったのであ�
 問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。 今回はreturnを使わずにyieldを使ってみましたが、for内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。
 cipherは下のように実装しました。
 def cipher(string: str): for s in string: if s.islower(): yield chr(219 - ord(s)) else: yield s &#34;&#34;.join((cipher(&#34;hoge is fuga.&#34;))) typoglycemiaは下のような感じになりました。
-def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt; 4: yield s[0] &#43; &#34;&#34;.join(random.sample(s[1:-1], len(s)-2)) &#43; s[-1] else: yield s &#34; &#34;."/>
+def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt; 4: yield s[0] &#43; &#34;&#34;.join(random.sample(s[1:-1], len(s)-2)) &#43; s[-1] else: yield s &#34; &#34;.join(typoglycemia(&#34;Alice, a seven-year-old girl, is feeling."/>
 
 <script type="application/ld+json">
 {
@@ -73,11 +73,11 @@ def typoglycemia(string: str): for s in string.split(&#34; &#34;): if len(s) &gt
   "@type": "BlogPosting",
   "headline": "NLP100本ノック",
   "name": "NLP100本ノック",
-  "description": "ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。\n章が終わるたびに載せていきたいと思います。\n目次  第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章  第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。\n逆順などはreversed()を使って、あとは文 …",
+  "description": "ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。\n章が終わるたびに載せていきたいと思います。\n目次 第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。\n逆順などはreversed()を使って、あとは文字列 …",
   "keywords": [
     
   ],
-  "articleBody": "ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。\n章が終わるたびに載せていきたいと思います。\n目次  第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章  第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。\n逆順などはreversed()を使って、あとは文字列をリストと見立ててゴチャゴチャ操作する感じで書いていきました。\n途中split()でのデフォルトで文字単位で区切ってくれると勘違いしていて少し引っ掛かったりしました…\n問題04で条件が分岐するindexが不規則だったのが気になったけど、辞書のキーが衝突しないように決めたのかなとも思ったり。\nn-gramに関してはデータマイニングの授業でも触ったのである程度知っていたのですが、それでも久々にやると結構忘れているものですね… n-gramの実装中に気になったこととしては、区切る単位（単語か文字か）によって返すリストの形式が変わってしまうところでした。 単語で区切るとList(List(str))なのに対して文字で区切るとList(str)なのは少し気になる… 調べた感じだと他の人もそんな感じだったので「良いかな」と割り切って進めていきました。\n集合の問題も結構面白かったです。普段あまりsetを使わないので、setの演算が練習できたのは勉強になりました。かなり直感的に和集合や差集合などを表せることを知ったので、機会があれば使ってみたいと思います。\n問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。 今回はreturnを使わずにyieldを使ってみましたが、for内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。\ncipherは下のように実装しました。\ndef cipher(string: str): for s in string: if s.islower(): yield chr(219 - ord(s)) else: yield s \"\".join((cipher(\"hoge is fuga.\"))) typoglycemiaは下のような感じになりました。\ndef typoglycemia(string: str): for s in string.split(\" \"): if len(s)  4: yield s[0] + \"\".join(random.sample(s[1:-1], len(s)-2)) + s[-1] else: yield s \" \".join(typoglycemia(\"Alice, a seven-year-old girl, is feeling...\")) 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 ",
+  "articleBody": "ちょっとNLPに触れる機会ができたのでNLPの100本ノックを始めました。\n章が終わるたびに載せていきたいと思います。\n目次 第1章 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 第1章 準備運動というタイトルになっていて、内容も結構基本的な文字列の扱いの練習になっていました。\n逆順などはreversed()を使って、あとは文字列をリストと見立ててゴチャゴチャ操作する感じで書いていきました。\n途中split()でのデフォルトで文字単位で区切ってくれると勘違いしていて少し引っ掛かったりしました…\n問題04で条件が分岐するindexが不規則だったのが気になったけど、辞書のキーが衝突しないように決めたのかなとも思ったり。\nn-gramに関してはデータマイニングの授業でも触ったのである程度知っていたのですが、それでも久々にやると結構忘れているものですね… n-gramの実装中に気になったこととしては、区切る単位（単語か文字か）によって返すリストの形式が変わってしまうところでした。 単語で区切るとList(List(str))なのに対して文字で区切るとList(str)なのは少し気になる… 調べた感じだと他の人もそんな感じだったので「良いかな」と割り切って進めていきました。\n集合の問題も結構面白かったです。普段あまりsetを使わないので、setの演算が練習できたのは勉強になりました。かなり直感的に和集合や差集合などを表せることを知ったので、機会があれば使ってみたいと思います。\n問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。 今回はreturnを使わずにyieldを使ってみましたが、for内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。\ncipherは下のように実装しました。\ndef cipher(string: str): for s in string: if s.islower(): yield chr(219 - ord(s)) else: yield s \"\".join((cipher(\"hoge is fuga.\"))) typoglycemiaは下のような感じになりました。\ndef typoglycemia(string: str): for s in string.split(\" \"): if len(s) \u003e 4: yield s[0] + \"\".join(random.sample(s[1:-1], len(s)-2)) + s[-1] else: yield s \" \".join(typoglycemia(\"Alice, a seven-year-old girl, is feeling...\")) 第2章 第3章 第4章 第5章 第6章 第7章 第8章 第9章 第10章 ",
   "wordCount" : "84",
   "inLanguage": "en",
   "datePublished": "2020-09-01T00:00:00Z",
@@ -196,24 +196,24 @@ n-gramの実装中に気になったこととしては、区切る単位（単�
 <p>問題08、09の暗号文、typoglycemiaは簡潔に実装できた気がします。
 今回は<code>return</code>を使わずに<code>yield</code>を使ってみましたが、<code>for</code>内で変換した文字をreturn用の文字列（または配列）に連結する処理を入れなくていいので、処理だけがあり明解な書き方だなぁと感じました。</p>
 <p>cipherは下のように実装しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cipher</span>(string: str):
-    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> string:
-        <span style="color:#66d9ef">if</span> s<span style="color:#f92672">.</span>islower():
-            <span style="color:#66d9ef">yield</span> chr(<span style="color:#ae81ff">219</span> <span style="color:#f92672">-</span> ord(s))
-        <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">yield</span> s
-
-<span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join((cipher(<span style="color:#e6db74">&#34;hoge is fuga.&#34;</span>)))
-</code></pre></div><p>typoglycemiaは下のような感じになりました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">typoglycemia</span>(string: str):
-    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> string<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>):
-        <span style="color:#66d9ef">if</span> len(s) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">4</span>:
-            <span style="color:#66d9ef">yield</span> s[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(random<span style="color:#f92672">.</span>sample(s[<span style="color:#ae81ff">1</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], len(s)<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)) <span style="color:#f92672">+</span> s[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-        <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">yield</span> s
-
-<span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">.</span>join(typoglycemia(<span style="color:#e6db74">&#34;Alice, a seven-year-old girl, is feeling...&#34;</span>))
-</code></pre></div><h2 id="第2章">第2章<a hidden class="anchor" aria-hidden="true" href="#第2章">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cipher</span>(string: str):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> string:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> s<span style="color:#f92672">.</span>islower():
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">yield</span> chr(<span style="color:#ae81ff">219</span> <span style="color:#f92672">-</span> ord(s))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">yield</span> s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join((cipher(<span style="color:#e6db74">&#34;hoge is fuga.&#34;</span>)))
+</span></span></code></pre></div><p>typoglycemiaは下のような感じになりました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">typoglycemia</span>(string: str):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> string<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> len(s) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">4</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">yield</span> s[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(random<span style="color:#f92672">.</span>sample(s[<span style="color:#ae81ff">1</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], len(s)<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)) <span style="color:#f92672">+</span> s[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">yield</span> s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">.</span>join(typoglycemia(<span style="color:#e6db74">&#34;Alice, a seven-year-old girl, is feeling...&#34;</span>))
+</span></span></code></pre></div><h2 id="第2章">第2章<a hidden class="anchor" aria-hidden="true" href="#第2章">#</a></h2>
 <h2 id="第3章">第3章<a hidden class="anchor" aria-hidden="true" href="#第3章">#</a></h2>
 <h2 id="第4章">第4章<a hidden class="anchor" aria-hidden="true" href="#第4章">#</a></h2>
 <h2 id="第5章">第5章<a hidden class="anchor" aria-hidden="true" href="#第5章">#</a></h2>
@@ -228,7 +228,7 @@ n-gramの実装中に気になったこととしては、区切る単位（単�
   </footer>
 </article>
     </main><footer class="footer">
-    <span>&copy; 2022 <a href="//kagari.github.io">kagari</a></span>
+    <span>&copy; 2024 <a href="//kagari.github.io">kagari</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
@@ -245,7 +245,7 @@ n-gramの実装中に気になったこととしては、区切る単位（単�
 
 
 
-<script defer src="//kagari.github.io/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<script defer src="//kagari.github.io/assets/js/highlight.min.5b9ae0304f93db6cc493f51846f012428af399c614b4f2fbdb7fa59dd4d5ef5b.js" integrity="sha256-W5rgME&#43;T22zEk/UYRvASQorzmcYUtPL723&#43;lndTV71s="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {

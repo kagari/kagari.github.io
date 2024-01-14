@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="//kagari.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.91.2" />
+<meta name="generator" content="Hugo 0.121.2">
 <link rel="alternate" type="application/rss&#43;xml" href="//kagari.github.io/error/index.xml">
 
 
@@ -109,15 +109,15 @@
   <section class="entry-content">
     <p>brew file update をしていたため、brewで入れたソフトが全てアップデートされており、opencvのバージョンが 4.0.1 に上がっていた
 そのため、opencvのディレクトリ構造が変化していたため、コンパイル時にうまく読み込めていなかった
-/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new!  また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
+/usr/local/include/opencv /usr/local/include/opencv2 -&gt; /usr/local/include/opencv4 &lt;-new! また、 opencv4 からC&#43;&#43;コンパイラのバージョン 11 が必須になっている。
 コンパイルする際のコマンドは以下のようになる
-g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4`  今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv4` 今回、 opencv3.x を使用したかったのでdowngradeしないといけなくなった
 brewは一度入れたバージョンはキャッシュとして取ってあるのでそれを再インストールする
-brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール  そのままコンパイルするとエラーがでる
-dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found  どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
+brew info opencv # 入っているバージョンを確認 brew switch opencv 3.4.3_2 # 過去のバージョンを再インストール そのままコンパイルするとエラーがでる
+dyld: Library not loaded: /usr/local/opt/openblas/lib/libopenblasp-r0.3.4.dylib Referenced from: /usr/local/opt/opencv/lib/libopencv_core.3.4.dylib Reason: image not found どうやら usr/local/opt/openblas というライブラリが読み込め無いらしい
 バージョンが違うっぽいのでこれもbrewで過去のバージョンに戻す
-brew switch openblas 0.3.4  この状態で、以下のようにコンパイルすると通る
-g&#43;&#43; @@@....</p>
+brew switch openblas 0.3.4 この状態で、以下のようにコンパイルすると通る
+g&#43;&#43; @@@.cpp -o @@@ -std=c&#43;&#43;11 `pkg-config --cflags --libs opencv` 参考文献 OpenCV(C&#43;&#43;)の画像処理メモ - Qiita...</p>
   </section>
   <footer class="entry-footer">October 1, 2018
 </footer>
@@ -125,7 +125,7 @@ g&#43;&#43; @@@....</p>
 </article>
 
     </main><footer class="footer">
-    <span>&copy; 2022 <a href="//kagari.github.io">kagari</a></span>
+    <span>&copy; 2024 <a href="//kagari.github.io">kagari</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
